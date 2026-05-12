@@ -1,0 +1,24 @@
+{
+  "feeds": [
+    {
+      "name": "OpenAI Blog",
+      "url": "https://openai.com/blog/rss.xml",
+      "company": "openai"
+    },
+    {
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/rss.xml",
+      "company": "anthropic"
+    },
+    {
+      "name": "NVIDIA Blog - AI",
+      "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/",
+      "company": "nvidia"
+    },
+    {
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "company": "google"
+    }
+  ]
+}

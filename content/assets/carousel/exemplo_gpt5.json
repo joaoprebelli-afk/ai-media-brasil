@@ -1,0 +1,26 @@
+{
+  "slug": "gpt-5-chegou-o-que-muda",
+  "slides": [
+    {
+      "numero": 1,
+      "tipo": "capa",
+      "prompt": "Instagram carousel cover slide. Bold headline 'GPT-5 CHEGOU' in white on dark gradient background. Electric blue accent lines. Clean, modern design. 1:1 square.",
+      "model": "nano_banana_flash",
+      "aspect_ratio": "1:1"
+    },
+    {
+      "numero": 2,
+      "tipo": "ponto",
+      "prompt": "Instagram carousel slide showing glowing brain icon with caption area. Dark background, blue glow effects. Minimalist infographic style. 1:1 square.",
+      "model": "nano_banana_flash",
+      "aspect_ratio": "1:1"
+    },
+    {
+      "numero": 7,
+      "tipo": "cta",
+      "prompt": "Instagram carousel final CTA slide. Arrow pointing right with text area. Gradient from dark blue to purple. Clean call-to-action design. 1:1 square.",
+      "model": "nano_banana_flash",
+      "aspect_ratio": "1:1"
+    }
+  ]
+}
