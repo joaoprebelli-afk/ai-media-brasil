@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artigos — JOÃOGPT</title>
+  <meta name="description" content="Todas as análises sobre inteligência artificial para o Brasil.">
+  <link rel="canonical" href="https://joaogpt.com/artigos">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .articles-page {
+      min-height: 100svh;
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 120px;
+    }
+    .articles-page-header {
+      margin-bottom: 56px;
+    }
+    .articles-page-header h1 {
+      font-family: var(--font-headline);
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-top: 12px;
+    }
+    .articles-full-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .coming-soon {
+      grid-column: 1 / -1;
+      padding: 80px 40px;
+      text-align: center;
+      border-radius: var(--radius-lg);
+      border: 1px dashed var(--border);
+    }
+    .coming-soon p {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      margin-top: 12px;
+    }
+    @media (max-width: 768px) {
+      .articles-full-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">JOÃO<span>GPT</span></a>
+      <div class="nav-center">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/artigos" class="nav-link" aria-current="page">Artigos</a>
+        <a href="/#newsletter" class="nav-link">Newsletter</a>
+      </div>
+      <div class="nav-end">
+        <a href="https://x.com/joaogptbr" class="nav-icon" target="_blank" rel="noopener" aria-label="X">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="/#newsletter" class="btn btn-primary btn-sm">Assinar</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="articles-page">
+    <div class="container">
+      <div class="articles-page-header">
+        <p class="section-label">Arquivo</p>
+        <h1>Todas as análises</h1>
+      </div>
+
+      <div class="articles-full-grid">
+        <div class="coming-soon">
+          <p class="section-label">Em breve</p>
+          <p>Os artigos estão sendo publicados. Assine a newsletter para receber cada um direto no seu email.</p>
+          <div style="margin-top: 24px;">
+            <a href="/#newsletter" class="btn btn-primary">Assinar newsletter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

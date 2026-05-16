@@ -1,0 +1,6 @@
+# Cloudflare Pages — Redirects
+# Formato: [origem] [destino] [código]
+
+# SPA fallback para rotas futuras (quando blog tiver páginas dinâmicas)
+/artigos/*   /artigos/index.html   200
+/sobre        /index.html#sobre    302
