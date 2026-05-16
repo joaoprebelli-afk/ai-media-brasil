@@ -1,5 +1,9 @@
 name = "ai-media-brasil"
 compatibility_date = "2026-05-16"
 
+# Cloudflare Pages usa este campo como diretório de publicação.
+pages_build_output_dir = "./website"
+
+# Cloudflare Workers Static Assets usa este bloco.
 [assets]
 directory = "./website"
