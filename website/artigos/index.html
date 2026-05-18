@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artigos — JOÃOGPT</title>
-  <meta name="description" content="Todas as análises sobre inteligência artificial para o Brasil.">
+  <meta name="description" content="Todas as análises sobre inteligência artificial para o Brasil. Lançamentos, modelos, ferramentas e contexto. Sem hype.">
   <link rel="canonical" href="https://joaogpt.com/artigos">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://joaogpt.com/artigos">
+  <meta property="og:title" content="Artigos — JOÃOGPT">
+  <meta property="og:description" content="Todas as análises sobre inteligência artificial para o Brasil.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@joaogptbr">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -25,25 +32,51 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-top: 12px;
+      margin-bottom: 0;
     }
+    /* Filter bar */
+    .articles-filter {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--t-fast);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--electric);
+      color: var(--electric);
+      background: rgba(108, 99, 255, 0.08);
+    }
+    /* Grid */
     .articles-full-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-    .coming-soon {
+    .article-card.featured-hero {
       grid-column: 1 / -1;
-      padding: 80px 40px;
-      text-align: center;
-      border-radius: var(--radius-lg);
-      border: 1px dashed var(--border);
     }
-    .coming-soon p {
-      color: var(--text-muted);
-      font-size: var(--text-sm);
-      margin-top: 12px;
+    @media (max-width: 900px) {
+      .articles-full-grid { grid-template-columns: repeat(2, 1fr); }
+      .article-card.featured-hero { grid-column: 1 / -1; }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       .articles-full-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -69,23 +102,151 @@
 
   <main class="articles-page">
     <div class="container">
+
       <div class="articles-page-header">
         <p class="section-label">Arquivo</p>
         <h1>Todas as análises</h1>
       </div>
 
+      <div class="articles-filter" role="group" aria-label="Filtrar por categoria">
+        <button class="filter-btn active">Todos</button>
+        <button class="filter-btn">Lançamento</button>
+        <button class="filter-btn">Análise</button>
+        <button class="filter-btn">Modelos</button>
+        <button class="filter-btn">Ferramentas</button>
+      </div>
+
       <div class="articles-full-grid">
-        <div class="coming-soon">
-          <p class="section-label">Em breve</p>
-          <p>Os artigos estão sendo publicados. Assine a newsletter para receber cada um direto no seu email.</p>
-          <div style="margin-top: 24px;">
-            <a href="/#newsletter" class="btn btn-primary">Assinar newsletter</a>
+
+        <!-- Card 1 — Featured, full width -->
+        <article class="article-card featured featured-hero">
+          <a href="/artigos/chatgpt-finance-conta-bancaria-openai" class="article-card-inner">
+            <div class="article-meta">
+              <span class="article-tag tag-launch">Lançamento</span>
+              <span class="article-date">15 Mai 2026</span>
+              <span class="article-read">6 min</span>
+            </div>
+            <h3 class="article-title">
+              A OpenAI Conectou o ChatGPT à Sua Conta Bancária. Por Enquanto, Só Para Americanos.
+            </h3>
+            <p class="article-excerpt">
+              ChatGPT Finance chegou para usuários Pro nos EUA via Plaid. É real, é concreto, e define o padrão que vai chegar ao Brasil. Entenda o que foi lançado, o que significa e o que o Open Finance do Banco Central tem a ver com isso.
+            </p>
+            <div class="article-footer">
+              <span class="article-cta">
+                Ler análise
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="article-card">
+          <a href="/artigos/sam-altman-chatgpt-conselheiro-de-vida" class="article-card-inner">
+            <div class="article-meta">
+              <span class="article-tag tag-analysis">Análise</span>
+              <span class="article-date">14 Mai 2026</span>
+              <span class="article-read">5 min</span>
+            </div>
+            <h3 class="article-title">
+              Gen Z Usa o ChatGPT Como Conselheiro de Vida. Sam Altman Confirmou.
+            </h3>
+            <p class="article-excerpt">
+              O CEO da OpenAI revelou que a nova geração consulta ChatGPT para decisões de carreira, relacionamentos e vida. O que isso diz sobre o futuro da IA?
+            </p>
+            <div class="article-footer">
+              <span class="article-cta">
+                Ler análise
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="article-card">
+          <a href="/artigos/chatgpt-55-instant-novo-modelo-padrao" class="article-card-inner">
+            <div class="article-meta">
+              <span class="article-tag tag-model">Modelo</span>
+              <span class="article-date">13 Mai 2026</span>
+              <span class="article-read">4 min</span>
+            </div>
+            <h3 class="article-title">
+              OpenAI Lançou o GPT-5.5 Instant Como Novo Modelo Padrão para Todo Mundo
+            </h3>
+            <p class="article-excerpt">
+              A OpenAI substituiu o modelo padrão do ChatGPT. GPT-5.5 Instant é mais rápido, mais barato e disponível para todos os usuários — gratuitos incluídos.
+            </p>
+            <div class="article-footer">
+              <span class="article-cta">
+                Ler análise
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Placeholder — próximo artigo -->
+        <article class="article-card" style="opacity:0.42;pointer-events:none;">
+          <div class="article-card-inner">
+            <div class="article-meta">
+              <span class="article-tag tag-analysis">Em breve</span>
+            </div>
+            <h3 class="article-title" style="color:var(--text-muted);">Próxima análise em publicação...</h3>
+            <p class="article-excerpt">Assine a newsletter para receber cada análise diretamente no seu email assim que publicar.</p>
+            <div class="article-footer">
+              <a href="/#newsletter" class="article-cta" style="pointer-events:all;opacity:1;">
+                Assinar newsletter
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
-        </div>
+        </article>
+
       </div>
     </div>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo footer-logo">JOÃO<span>GPT</span></a>
+          <p class="footer-tagline">Mídia tech brasileira sobre IA.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Links do rodapé">
+          <div class="footer-col">
+            <p class="footer-col-title">Conteúdo</p>
+            <a href="/artigos" class="footer-link">Artigos</a>
+            <a href="/#newsletter" class="footer-link">Newsletter</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Redes</p>
+            <a href="https://x.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">X / Twitter</a>
+            <a href="https://instagram.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 JOÃOGPT · Todos os direitos reservados</p>
+        <p class="footer-sub">Feito com IA. Curado por humano.</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="/js/main.js"></script>
+  <script>
+    (function () {
+      const btns = document.querySelectorAll('.filter-btn');
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>
