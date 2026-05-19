@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A Anthropic publicou um manual sobre IA em codebases gigantes — JOÃOGPT</title>
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-soft: #111114;
+    --fg: #ededee;
+    --fg-dim: #a0a0a8;
+    --fg-mute: #6b6b75;
+    --accent: #c4f55a;
+    --accent-soft: rgba(196,245,90,.12);
+    --line: rgba(255,255,255,.06);
+    --line-strong: rgba(255,255,255,.12);
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+    font-size: 17px;
+    overflow-x: hidden;
+  }
+
+  /* Glow gradient ambient */
+  .ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(196,245,90,.07), transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 90%, rgba(120,180,255,.04), transparent 70%);
+  }
+
+  /* Top nav */
+  nav.top {
+    position: relative;
+    z-index: 2;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(20px);
+  }
+  nav.top .brand {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: -.01em;
+    font-weight: 600;
+    color: var(--fg);
+  }
+  nav.top .brand .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 999px;
+    margin-right: 8px;
+    vertical-align: middle;
+    box-shadow: 0 0 12px var(--accent);
+  }
+  nav.top .meta-right {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--fg-mute);
+  }
+
+  /* Article container */
+  article {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 64px 28px 120px;
+  }
+
+  /* Header block */
+  .chip {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(196,245,90,.2);
+    margin-bottom: 28px;
+  }
+
+  h1.headline {
+    font-family: var(--sans);
+    font-size: clamp(32px, 5.5vw, 46px);
+    line-height: 1.1;
+    letter-spacing: -.025em;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 24px;
+  }
+
+  .deck {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--fg-dim);
+    font-style: italic;
+    margin: 0 0 40px;
+    padding-left: 16px;
+    border-left: 2px solid var(--line-strong);
+  }
+
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--fg-mute);
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .byline .sep { color: var(--line-strong); }
+  .byline .author { color: var(--fg); }
+
+  /* Body */
+  article h2 {
+    font-family: var(--sans);
+    font-size: 24px;
+    line-height: 1.25;
+    letter-spacing: -.015em;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 56px 0 20px;
+  }
+
+  article p {
+    margin: 0 0 24px;
+    color: #d6d6d8;
+  }
+
+  article p strong { color: var(--fg); font-weight: 600; }
+  article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(196,245,90,.25); }
+  article a:hover { border-bottom-color: var(--accent); }
+
+  /* Pull / source */
+  .source-card {
+    margin: 64px 0 0;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  }
+  .source-card .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+    margin-bottom: 10px;
+  }
+  .source-card .src-title {
+    font-size: 16px;
+    color: var(--fg);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .source-card .src-url {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    word-break: break-all;
+  }
+
+  /* Footer */
+  footer.bottom {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 48px 28px 64px;
+    border-top: 1px solid var(--line);
+    color: var(--fg-mute);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  footer.bottom .glow {
+    display: inline-block;
+    color: var(--accent);
+  }
+
+  @media (max-width: 520px) {
+    article { padding: 40px 22px 96px; }
+    h1.headline { font-size: 30px; }
+    .deck { font-size: 17px; }
+    nav.top { padding: 18px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span>JOÃOGPT</div>
+  <div class="meta-right">18.05.26</div>
+</nav>
+
+<article>
+  <span class="chip">Análise</span>
+
+  <h1 class="headline">
+    A Anthropic publicou um manual sobre IA em codebases gigantes. Sem querer, descreveu o Brasil corporativo.
+  </h1>
+
+  <p class="deck">
+    O post enterprise de sete mil palavras tem um detalhe que ninguém viu. E ele aponta direto pra oportunidade de quem programa aqui.
+  </p>
+
+  <div class="byline">
+    <span class="author">JOÃOGPT</span>
+    <span class="sep">/</span>
+    <span>18 mai 2026</span>
+    <span class="sep">/</span>
+    <span>4 min de leitura</span>
+  </div>
+
+  <p>Anteontem a Anthropic soltou um post de sete mil palavras sobre como rodar Claude Code em codebases enormes. O texto é direcionado a líderes de engenharia de empresas com milhares de devs e monorepos de milhões de linhas. Mas no meio do conteúdo, sem alarde, a Anthropic confirmou uma coisa que importa demais pra quem programa no Brasil.</p>
+
+  <h2>O que o post diz</h2>
+
+  <p>A tese central é direta. Em codebase grande, o que decide se IA funciona não é o modelo, é o que está em volta dele. A Anthropic chama isso de <strong>harness</strong>. CLAUDE.md hierárquico, hooks, skills, plugins, MCPs, LSP. Quem investe nesse encanamento antes de adotar a ferramenta colhe; quem deixa cada dev se virar sozinho fica com uma adoção fragmentada e tribal.</p>
+
+  <p>A solução proposta é cara em organização. Tem cargo novo no horizonte, o <em>agent manager</em>, um híbrido de PM e engenheiro dedicado só a manter o ecossistema de IA da empresa. Tem working groups envolvendo segurança, governance e DevEx. Tem ciclo de revisão de configuração a cada três a seis meses, porque instruções escritas hoje atrapalham os modelos de amanhã. É o tipo de prescrição que cabe em banco grande, gigante de varejo, software house enterprise.</p>
+
+  <p>E é exatamente aqui que vale parar um segundo.</p>
+
+  <h2>O detalhe que ninguém comentou</h2>
+
+  <p>Em um trecho quase escondido, a Anthropic lista as linguagens em que Claude Code está performando bem em codebases grandes. <strong>C, C++, C#, Java, PHP.</strong> Stacks que, nas palavras do próprio post, "não costumam ser associadas a AI coding". Traduzindo: o discurso de IA pra dev nos últimos dois anos foi quase todo focado em Python, TypeScript, React. As linguagens "modernas". As stacks de startup.</p>
+
+  <p>O Brasil corporativo não roda nisso. Roda em Java de 2009, COBOL escondido em banco, Delphi em seguradora, PHP enterprise em órgão público, C++ legado em telecom. O dev brasileiro que aceita uma vaga remota gringa muitas vezes cai num monorepo Java enorme. E o dev brasileiro que trabalha pra empresa daqui passa o dia mantendo sistema que ninguém mais quer tocar.</p>
+
+  <p>A Anthropic acabou de dizer que esse é o ambiente onde Claude Code mais brilha hoje. Não em playground de Next.js. Em codebase velha, grande, regulada, multi-linguagem.</p>
+
+  <h2>Por que isso vira oportunidade prática</h2>
+
+  <p>Pensa em quem você é. Se você é dev brasileiro em time global, esse post é o roteiro pra você se posicionar como referência interna. Quem aprende a montar CLAUDE.md hierárquico bem feito vira a pessoa que documenta o monorepo pra IA da empresa inteira. Não é desenvolvimento de feature, é alavancagem invisível. Promoção sai dessa porta.</p>
+
+  <p>Se você é freela ou consultor, abriu um mercado novo. Empresa grande brasileira sabe que precisa adotar IA pra dev, não sabe como, não tem agent manager, não vai ter tão cedo. Quem chega com plugin pronto, CLAUDE.md de exemplo e hooks de validação cobra bem. Esse tipo de implementação não é commodity ainda. Vai ser em dezoito meses.</p>
+
+  <p>Se você é builder solo, a leitura é outra. O post inteiro assume um time inteiro dedicado a montar o setup. Você não tem isso. Mas pega o conceito de harness em camadas, joga fora 80% da governance e fica com o core: CLAUDE.md curto no root explicando o projeto, skills pra tarefas repetitivas, um ou dois hooks. Isso é viável pra um time de duas pessoas.</p>
+
+  <h2>O que a Anthropic não disse</h2>
+
+  <p>Três coisas. <strong>Primeira:</strong> zero menção a custo. Uma empresa rodando Claude Code o dia inteiro com milhares de devs paga muito. O post fala como se token fosse infinito. Não é.</p>
+
+  <p><strong>Segunda:</strong> nenhuma palavra sobre concorrência. Cursor, Copilot, Cline, Windsurf. O post critica "ferramentas baseadas em RAG" sem citar nome, vende a abordagem agentic search da Anthropic como solução, e some. Isso é marketing, não comparação honesta.</p>
+
+  <p><strong>Terceira:</strong> o post promete cobrir edge cases em "futuras publicações". Tradução: codebase fora do padrão git, com centenas de milhares de pastas, ou um stack realmente esquisito, ainda não funciona bem. A Anthropic admite indiretamente que tem limite. Bom saber antes de vender o serviço.</p>
+
+  <h2>A leitura final</h2>
+
+  <p>A Anthropic publicou um manual enterprise que vale ler com olho brasileiro. O conteúdo técnico é sólido. A oportunidade que o post deixa transparecer é grande. E o que ele esconde também importa, porque quem só repete prescrição gringa sem traduzir pra realidade local entrega valor menor.</p>
+
+  <p>A IA pra dev está saindo da fase de demos bonitas e entrando na fase de infraestrutura. Quem aprender a montar o encanamento antes do resto vai surfar uma onda que ainda nem chegou direito aqui.</p>
+
+  <div class="source-card">
+    <div class="label">Fonte original</div>
+    <div class="src-title">How Claude Code works in large codebases: best practices and where to start</div>
+    <div class="src-url">claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start</div>
+  </div>
+</article>
+
+<footer class="bottom">
+  <span class="glow">JOÃOGPT</span> &nbsp;·&nbsp; mídia tech brasileira sobre IA &nbsp;·&nbsp; joaogpt.com
+</footer>
+</body>
+</html>
