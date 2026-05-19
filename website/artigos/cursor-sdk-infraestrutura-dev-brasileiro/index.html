@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>O Cursor parou de ser editor. Quase ninguém no Brasil percebeu o que isso significa. — JOÃOGPT</title>
+  <meta name="description" content="O Cursor lançou o @cursor/sdk em beta público. Com quatro linhas de TypeScript, qualquer time embute agentes de codificação no próprio produto. Isso não é feature nova — é mudança de categoria.">
+  <meta name="author" content="João · @joaogptbr">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://joaogpt.com/artigos/cursor-sdk-infraestrutura-dev-brasileiro">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://joaogpt.com/artigos/cursor-sdk-infraestrutura-dev-brasileiro">
+  <meta property="og:title" content="O Cursor parou de ser editor. Quase ninguém no Brasil percebeu o que isso significa.">
+  <meta property="og:description" content="O Cursor lançou o @cursor/sdk em beta público. Com quatro linhas de TypeScript, qualquer time embute agentes de codificação no próprio produto. Isso não é feature nova — é mudança de categoria.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:published_time" content="2026-05-19">
+  <meta property="article:author" content="João">
+  <meta property="article:tag" content="Cursor, SDK, Ferramentas, Builders, Consultoria">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@joaogptbr">
+  <meta name="twitter:creator" content="@joaogptbr">
+  <meta name="twitter:title" content="O Cursor parou de ser editor. Quase ninguém no Brasil percebeu o que isso significa.">
+  <meta name="twitter:description" content="Com npm install @cursor/sdk qualquer time embute agentes de codificação no próprio produto. O que isso muda para dev e consultor BR.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "O Cursor parou de ser editor. Quase ninguém no Brasil percebeu o que isso significa.",
+    "description": "O Cursor lançou o @cursor/sdk em beta público. Com quatro linhas de TypeScript, qualquer time embute agentes de codificação no próprio produto.",
+    "author": { "@type": "Person", "name": "João", "url": "https://x.com/joaogptbr" },
+    "publisher": { "@type": "Organization", "name": "JOÃOGPT", "url": "https://joaogpt.com" },
+    "datePublished": "2026-05-19",
+    "inLanguage": "pt-BR",
+    "url": "https://joaogpt.com/artigos/cursor-sdk-infraestrutura-dev-brasileiro"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/article.css">
+  <link rel="stylesheet" href="/styles/tweets.css">
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="article-progress" aria-hidden="true">
+    <div class="article-progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo" aria-label="JOÃOGPT — home">JOÃO<span>GPT</span></a>
+      <div class="nav-center">
+        <a href="/artigos" class="nav-link" aria-current="page">Artigos</a>
+        <a href="/#sobre" class="nav-link">Sobre</a>
+        <a href="/#newsletter" class="nav-link">Newsletter</a>
+      </div>
+      <div class="nav-end">
+        <a href="https://x.com/joaogptbr" class="nav-icon" target="_blank" rel="noopener" aria-label="X">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="/#newsletter" class="btn btn-primary btn-sm">Assinar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <header class="article-hero">
+    <div class="container article-hero-inner">
+
+      <div class="article-meta-row">
+        <a href="/artigos" class="article-breadcrumb">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Artigos
+        </a>
+        <span class="article-meta-sep"></span>
+        <span class="article-tag tag-tool">Ferramentas</span>
+        <span class="article-meta-sep"></span>
+        <span class="article-date">19 Mai 2026</span>
+        <span class="article-meta-sep"></span>
+        <span class="article-read">4 min de leitura</span>
+      </div>
+
+      <h1 class="article-title">
+        O Cursor parou de ser editor. Quase ninguém no Brasil percebeu o que isso significa.
+      </h1>
+
+      <p class="article-excerpt">
+        No fim de abril, o Cursor abriu o runtime dos agentes para qualquer desenvolvedor. Quatro linhas de TypeScript e você tem acesso ao mesmo motor que roda dentro do produto. Não é feature nova. É mudança de categoria.
+      </p>
+
+      <div class="article-byline">
+        <div class="article-author">
+          <div class="article-author-avatar">J</div>
+          <div>
+            <span class="article-author-name">João</span>
+            <span class="article-author-handle">@joaogptbr</span>
+          </div>
+        </div>
+        <div class="article-share">
+          <span class="share-label">Compartilhar</span>
+          <a
+            href="https://x.com/intent/tweet?text=O%20Cursor%20parou%20de%20ser%20editor.%20Quase%20ningu%C3%A9m%20no%20Brasil%20percebeu%20o%20que%20isso%20significa.&url=https%3A%2F%2Fjoaogpt.com%2Fartigos%2Fcursor-sdk-infraestrutura-dev-brasileiro&via=joaogptbr"
+            class="share-btn" target="_blank" rel="noopener" aria-label="Compartilhar no X"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X
+          </a>
+          <button class="share-btn" id="copy-link-btn" aria-label="Copiar link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Copiar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ BODY ═══════════════════════════ -->
+  <main class="article-main">
+    <div class="article-layout">
+      <article class="article-prose" id="article-body">
+
+        <p class="article-lead">
+          No fim de abril, o Cursor abriu o runtime dos agentes para qualquer desenvolvedor. Com <code>npm install @cursor/sdk</code>, qualquer time tem acesso ao mesmo motor que roda dentro do produto — os mesmos modelos, o mesmo harness, o mesmo ambiente de execução. Quatro linhas de TypeScript e você inicia um agente, manda uma tarefa e recebe stream de eventos.
+        </p>
+
+        <p>
+          Não é feature nova. É mudança de categoria. O Cursor parou de ser editor e virou infraestrutura.
+        </p>
+
+        <!-- ── Tweet: Anúncio @cursor_ai ────────────────── -->
+        <p class="tweet-context">Anúncio oficial · Cursor</p>
+        <div class="tweet-card">
+          <div class="tweet-header">
+            <div class="tweet-avatar">
+              <div class="tweet-avatar-letter" style="background: linear-gradient(135deg, #1a1a2e, #16213e); font-size: 13px; font-weight: 700; letter-spacing: -0.5px;">↗</div>
+            </div>
+            <div class="tweet-author">
+              <div class="tweet-name-row">
+                <span class="tweet-name">Cursor</span>
+                <span class="tweet-verified">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </span>
+              </div>
+              <span class="tweet-handle">@cursor_ai</span>
+            </div>
+            <div class="tweet-x-logo">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+          </div>
+
+          <div class="tweet-body">
+            <p>Introducing the <strong>Cursor SDK</strong> — public beta.</p>
+            <p><code>npm install @cursor/sdk</code></p>
+            <p>Run Cursor agents programmatically. Same runtime, same models, same environment as the editor. Works locally, in Cursor Cloud with dedicated VMs, or self-hosted in your own network.</p>
+            <p>Pricing: token-based, same as the rest of Cursor.</p>
+          </div>
+
+          <div class="tweet-footer">
+            <div class="tweet-stats">
+              <span class="tweet-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                3.2K
+              </span>
+              <span class="tweet-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                6.8K
+              </span>
+              <span class="tweet-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                22.4K
+              </span>
+            </div>
+            <span class="tweet-date">10:15 AM · 29 Abr 2026</span>
+            <a href="https://x.com/cursor_ai" class="tweet-link-out" target="_blank" rel="noopener">
+              Ver no X
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <h2>O que o SDK faz, na prática</h2>
+
+        <p>
+          O <a href="https://cursor.com/blog/typescript-sdk" target="_blank" rel="noopener">Cursor SDK</a> permite que qualquer desenvolvedor rode agentes de codificação fora do editor — direto de um script, um pipeline de CI/CD, ou um produto que você entrega para cliente. A API é simples: você inicia um agente, passa uma tarefa como string e recebe um stream de eventos enquanto o agente trabalha.
+        </p>
+
+        <div class="article-callout">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            O que o Cursor SDK permite fazer
+          </div>
+          <ul>
+            <li>Rodar agentes de codificação direto do CI/CD — sem abrir editor</li>
+            <li>Acionar um agente quando um teste falha, identificar o root cause e abrir o PR automaticamente</li>
+            <li>Embutir agentes em produtos internos para automações que cruzam múltiplos repos</li>
+            <li>Configurar ambiente Docker com dependências específicas de cada projeto legado</li>
+            <li>Usar no Cursor Cloud (VM dedicada) ou self-hosted na própria rede da empresa</li>
+          </ul>
+        </div>
+
+        <p>
+          A <strong>Faire</strong> e a <strong>Amplitude</strong> já estão usando. A Faire citou pipelines de CI/CD. A Amplitude citou automações que cruzam múltiplos repos simultaneamente. Esses são os casos mais simples.
+        </p>
+
+        <h2>Por que isso quebra o modelo anterior</h2>
+
+        <p>
+          Até aqui, o Cursor era uma ferramenta de produtividade individual. Você abria o editor, usava o agente, fechava o editor. O valor ficava dentro da sessão.
+        </p>
+
+        <p>
+          O SDK quebra esse ciclo. Agora o agente pode rodar em background enquanto o desenvolvedor faz outra coisa. Pode ser acionado por evento — um teste vermelho, um deploy com erro, um ticket novo. Pode ser orquestrado por outro sistema. A barreira entre "ferramenta de dev" e "infraestrutura de produto" sumiu.
+        </p>
+
+        <div class="article-pullquote">
+          <p>"O Cursor parou de ser onde você escreve código. Virou como o código é construído."</p>
+          <cite>João · @joaogptbr</cite>
+        </div>
+
+        <h2>O ângulo que ninguém no Brasil está cobrindo</h2>
+
+        <p>
+          Dev sênior brasileiro em empresa de médio porte passa grande parte da semana em monorepo legado. Java, PHP, às vezes C#. Código que não vai ser reescrito porque a empresa existe há quinze anos e o CEO tem medo de refactor.
+        </p>
+
+        <p>
+          O Cursor SDK resolve exatamente esse ambiente. O harness suporta qualquer linguagem, o SDK funciona com qualquer repo, e você configura um ambiente Docker com as dependências específicas daquele legado. O agente não precisa de projeto "limpo" pra funcionar — ele funciona onde o código já está.
+        </p>
+
+        <p>
+          Isso vira consultoria.
+        </p>
+
+        <p>
+          Montar o harness, configurar as skills e hooks para o contexto da empresa, criar as automações de CI/CD e treinar o time para supervisionar os agentes. Não é trabalho de três horas. É projeto de duas a quatro semanas — e tem valor claro, mensurável, entregável.
+        </p>
+
+        <div class="article-callout warning">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            O risco que ninguém está mencionando
+          </div>
+          <p>
+            O SDK coloca agentes de codificação em pipeline de produção. Em empresa que configura isso sem política de revisão humana, o agente escreve código que vai pra produção com pouco ou nenhum olho humano.
+          </p>
+          <p>
+            Para empresa brasileira que ainda não tem cultura de AI governance, isso é um risco real. Não de apocalipse. De PR mal revisado virando bug de produção sem ninguém perceber por três sprints.
+          </p>
+          <p>
+            O próprio Cursor entrega ferramentas de supervisão: Security Review, Bugbot, audit logs de ambiente. Mas ferramentas só ajudam quem as configura.
+          </p>
+        </div>
+
+        <h2>O movimento estratégico por trás do SDK</h2>
+
+        <p>
+          Quando sua empresa roda o runtime do Cursor em produção — quando seu CI/CD, seus automações internas e seus produtos dependem do SDK — o custo de migrar para outra ferramenta sobe drasticamente. Não é lock-in agressivo. Não tem contrato de três anos nem cláusula de penalidade. É o lock-in mais elegante que o Cursor fez até hoje: você mesmo constrói a dependência.
+        </p>
+
+        <p>
+          É também a razão pela qual a SpaceX assinou opção de compra de $60 bilhões. Não por produto de editor. Não por assinaturas mensais de dev. Por infraestrutura de agentes que está se tornando o chão de como software é construído em escala.
+        </p>
+
+        <div class="tweet-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;color:var(--electric)"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span><strong>Contexto:</strong> A SpaceX usa Cursor extensivamente para desenvolvimento de software embarcado. O investimento estratégico sinaliza que a empresa vê o Cursor como infraestrutura crítica — não como ferramenta de produtividade descartável.</span>
+        </div>
+
+        <div class="article-section-sep">
+          <span>Conclusão</span>
+        </div>
+
+        <p>
+          No Brasil, esse mercado não tem nome ainda. Não existe ainda o "consultor de implementação de agentes de codificação". A proposta de valor ainda não está commoditizada. A janela de vantagem para dev e consultora brasileira que chegar com proposta estruturada está aberta.
+        </p>
+
+        <p>
+          Por pouco tempo.
+        </p>
+
+        <!-- ── Author box ───────────────────────────────────── -->
+        <div class="article-author-box">
+          <div class="article-author-box-avatar">J</div>
+          <div>
+            <div class="article-author-box-name">João</div>
+            <div class="article-author-box-handle">@joaogptbr</div>
+            <p class="article-author-box-bio">
+              Builder brasileiro construindo com IA todos os dias. Escrevo análises sobre inteligência artificial com contexto para o Brasil — sem hype, sem tradução genérica.
+            </p>
+            <a href="https://x.com/joaogptbr" class="article-author-box-follow" target="_blank" rel="noopener">
+              Seguir no X
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Newsletter CTA ──────────────────────────────── -->
+        <div class="article-newsletter-cta">
+          <div class="article-newsletter-cta-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3>Próxima análise na sua caixa de entrada</h3>
+          <p>Uma newsletter semanal sobre IA com contexto para o Brasil. Sem spam.</p>
+          <form class="article-newsletter-form" id="article-newsletter-form" novalidate>
+            <input type="email" class="form-input" placeholder="seu@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Assinar</button>
+          </form>
+        </div>
+
+        <!-- ── Related articles ────────────────────────────── -->
+        <div class="article-related">
+          <p class="article-related-title">Continue lendo</p>
+          <div class="article-related-grid">
+            <a href="/artigos/chatgpt-finance-conta-bancaria-openai" class="article-related-card">
+              <span class="article-related-tag">Lançamento</span>
+              <h4>A OpenAI Conectou o ChatGPT à Sua Conta Bancária. Por Enquanto, Só Para Americanos.</h4>
+              <p>15 Mai 2026 · 6 min</p>
+            </a>
+            <a href="/artigos/sam-altman-chatgpt-conselheiro-de-vida" class="article-related-card">
+              <span class="article-related-tag">Análise</span>
+              <h4>Gen Z Usa o ChatGPT Como Conselheiro de Vida. Sam Altman Confirmou.</h4>
+              <p>14 Mai 2026 · 5 min</p>
+            </a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo footer-logo">JOÃO<span>GPT</span></a>
+          <p class="footer-tagline">Mídia tech brasileira sobre IA.</p>
+          <div class="footer-social">
+            <a href="https://x.com/joaogptbr" class="footer-icon" target="_blank" rel="noopener" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com/joaogptbr" class="footer-icon" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Links do rodapé">
+          <div class="footer-col">
+            <p class="footer-col-title">Conteúdo</p>
+            <a href="/artigos" class="footer-link">Artigos</a>
+            <a href="/#newsletter" class="footer-link">Newsletter</a>
+            <a href="/#sobre" class="footer-link">Sobre</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Redes</p>
+            <a href="https://x.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">X / Twitter</a>
+            <a href="https://instagram.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://tiktok.com/@joaogptbr" class="footer-link" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://youtube.com/@joaogptbr" class="footer-link" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 JOÃOGPT · Todos os direitos reservados</p>
+        <p class="footer-sub">Feito com IA. Curado por humano.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    /* ── Reading progress bar ──────────────────────────────── */
+    (function () {
+      const bar = document.getElementById('progress-bar');
+      const body = document.getElementById('article-body');
+      if (!bar || !body) return;
+      const update = () => {
+        const rect = body.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const scrolled = Math.max(0, -rect.top);
+        bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    /* ── Copy link button ──────────────────────────────────── */
+    (function () {
+      const btn = document.getElementById('copy-link-btn');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          const original = btn.innerHTML;
+          btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copiado!';
+          btn.style.color = 'var(--cyan)';
+          setTimeout(() => { btn.innerHTML = original; btn.style.color = ''; }, 2000);
+        });
+      });
+    })();
+
+    /* ── Article newsletter form ──────── */
+    (function () {
+      const form = document.getElementById('article-newsletter-form');
+      if (!form) return;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const input = form.querySelector('.form-input');
+        const btn   = form.querySelector('.btn');
+        if (!input || !btn) return;
+        btn.textContent = '...';
+        btn.disabled = true;
+        await new Promise(r => setTimeout(r, 1200));
+        form.innerHTML = '<p style="color:var(--cyan);font-size:var(--text-sm);font-weight:600;">✓ Confirmado! Verifique seu email.</p>';
+      });
+    })();
+  </script>
+
+</body>
+</html>
