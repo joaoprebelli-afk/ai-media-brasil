@@ -1,90 +1,24 @@
-# ─── Segredos e configuração local ───────────────────────────────────────────
-.env
-.env.*
-!.env.example
-
-# ─── Bancos de dados ─────────────────────────────────────────────────────────
-*.db
-*.db-journal
-*.db-shm
-*.db-wal
-*.sqlite
-*.sqlite3
-
-# ─── Logs ────────────────────────────────────────────────────────────────────
-automation/logs/
-*.log
-
-# ─── Conteúdo gerado (não versionar assets/artigos gerados por IA) ────────────
-content/output/
-content/generated_assets/
-content/social/tiktok/
-content/social/instagram/
-content/social/carousel/
-content/social/twitter/
-content/social/linkedin/
-content/social/newsletter/
-content/assets/thumbnails/*.png
-content/assets/reels/*.mp4
-content/assets/carousel/*.png
-
-# ─── Cache e temporários ─────────────────────────────────────────────────────
-cache/
-temp/
-tmp/
-.cache/
-*.tmp
-*.temp
-
-# ─── Python ──────────────────────────────────────────────────────────────────
+# venv e python
+.venv/
 __pycache__/
 *.pyc
-*.py[cod]
-*$py.class
-*.so
-*.pyo
-*.pyd
-.Python
-build/
-dist/
-*.egg-info/
-*.egg
-.eggs/
-MANIFEST
 
-# ─── Ambientes virtuais ───────────────────────────────────────────────────────
-.venv/
-venv/
-env/
-ENV/
-.env.bak
-pip-selfcheck.json
+# dados locais
+*.db
+*.sqlite
+*.sqlite3
+.env
 
-# ─── Node (caso use ferramentas JS para automação futura) ────────────────────
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.npm
-.yarn/
-
-# ─── IDEs e editores ─────────────────────────────────────────────────────────
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# sistema
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# ─── Jupyter (caso use notebooks para análise) ────────────────────────────────
-.ipynb_checkpoints/
-*.ipynb
+# IDE
+.vscode/
+.idea/
 
-# ─── Relatórios e cobertura de testes ────────────────────────────────────────
-.coverage
-htmlcov/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
+# claude
+.claude/
+
+# outputs temporários
+outputs/
