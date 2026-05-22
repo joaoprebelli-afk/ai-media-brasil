@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>O Google não lançou uma ferramenta de código. Lançou uma fábrica de software mobile. — JOÃOGPT</title>
+  <meta name="description" content="No Google I/O, o Google anunciou que qualquer pessoa pode criar um app Android real conversando com IA. Isso não é uma ferramenta pra programadores. É o começo do fim de uma barreira que existia há décadas.">
+  <meta name="author" content="João · @joaogptbr">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://joaogpt.com/artigos/google-io-play-store-tiktok-software">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://joaogpt.com/artigos/google-io-play-store-tiktok-software">
+  <meta property="og:title" content="O Google não lançou uma ferramenta de código. Lançou uma fábrica de software mobile.">
+  <meta property="og:description" content="No Google I/O, o Google anunciou que qualquer pessoa pode criar um app Android real conversando com IA. A Play Store está virando TikTok de software.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:published_time" content="2026-05-21">
+  <meta property="article:author" content="João">
+  <meta property="article:tag" content="Google, Android, Play Store, Creators, Software, Google I/O">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@joaogptbr">
+  <meta name="twitter:creator" content="@joaogptbr">
+  <meta name="twitter:title" content="O Google não lançou uma ferramenta de código. Lançou uma fábrica de software mobile.">
+  <meta name="twitter:description" content="A Play Store está virando TikTok de software. E quase ninguém percebeu o que isso significa de verdade.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "O Google não lançou uma ferramenta de código. Lançou uma fábrica de software mobile.",
+    "description": "No Google I/O, o Google anunciou que qualquer pessoa pode criar um app Android real conversando com IA.",
+    "author": { "@type": "Person", "name": "João", "url": "https://x.com/joaogptbr" },
+    "publisher": { "@type": "Organization", "name": "JOÃOGPT", "url": "https://joaogpt.com" },
+    "datePublished": "2026-05-21",
+    "inLanguage": "pt-BR",
+    "url": "https://joaogpt.com/artigos/google-io-play-store-tiktok-software"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/article.css">
+  <link rel="stylesheet" href="/styles/tweets.css">
+
+  <style>
+    /* Antes/Agora comparison */
+    .flow-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .flow-card {
+      background: var(--surface-2, #1C1C2E);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .flow-card.antes { border-top: 2px solid var(--text-muted, #5a5a7a); }
+    .flow-card.agora {
+      border-top: 2px solid var(--electric, #C4F55A);
+      box-shadow: 0 0 24px rgba(196,245,90,0.06);
+    }
+    .flow-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted, #5a5a7a);
+      margin-bottom: 14px;
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    }
+    .flow-card.agora .flow-label { color: var(--electric, #C4F55A); }
+    .flow-steps {
+      font-size: 13px;
+      line-height: 2.2;
+      color: var(--text-muted, #a0a0c0);
+    }
+    .flow-card.agora .flow-steps {
+      color: var(--text-primary, #F0F0FF);
+      font-weight: 500;
+    }
+    .companies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 28px;
+    }
+    .company-pill {
+      background: var(--surface-2, #1C1C2E);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: var(--text-muted, #a0a0c0);
+      font-family: var(--font-mono, monospace);
+    }
+    @media (max-width: 600px) {
+      .flow-compare { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="article-progress" aria-hidden="true">
+    <div class="article-progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo" aria-label="JOÃOGPT — home">JOÃO<span>GPT</span></a>
+      <div class="nav-center">
+        <a href="/artigos" class="nav-link" aria-current="page">Artigos</a>
+        <a href="/#sobre" class="nav-link">Sobre</a>
+        <a href="/#newsletter" class="nav-link">Newsletter</a>
+      </div>
+      <div class="nav-end">
+        <a href="https://x.com/joaogptbr" class="nav-icon" target="_blank" rel="noopener" aria-label="X">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="/#newsletter" class="btn btn-primary btn-sm">Assinar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <header class="article-hero">
+    <div class="container article-hero-inner">
+
+      <div class="article-meta-row">
+        <a href="/artigos" class="article-breadcrumb">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Artigos
+        </a>
+        <span class="article-meta-sep"></span>
+        <span class="article-tag tag-analysis">Análise</span>
+        <span class="article-meta-sep"></span>
+        <span class="article-date">21 Mai 2026</span>
+        <span class="article-meta-sep"></span>
+        <span class="article-read">7 min de leitura</span>
+      </div>
+
+      <h1 class="article-title">
+        O Google não lançou uma ferramenta de código. Lançou uma fábrica de software mobile.
+      </h1>
+
+      <p class="article-excerpt">
+        No Google I/O, o Google anunciou que qualquer pessoa pode criar um app Android real conversando com IA. A Play Store está virando TikTok de software. E quase ninguém percebeu o que isso significa de verdade.
+      </p>
+
+      <div class="article-byline">
+        <div class="article-author">
+          <div class="article-author-avatar">J</div>
+          <div>
+            <span class="article-author-name">João</span>
+            <span class="article-author-handle">@joaogptbr</span>
+          </div>
+        </div>
+        <div class="article-share">
+          <span class="share-label">Compartilhar</span>
+          <a
+            href="https://x.com/intent/tweet?text=O%20Google%20n%C3%A3o%20lan%C3%A7ou%20uma%20ferramenta%20de%20c%C3%B3digo.%20Lan%C3%A7ou%20uma%20f%C3%A1brica%20de%20software%20mobile.&url=https%3A%2F%2Fjoaogpt.com%2Fartigos%2Fgoogle-io-play-store-tiktok-software&via=joaogptbr"
+            class="share-btn" target="_blank" rel="noopener" aria-label="Compartilhar no X"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X
+          </a>
+          <button class="share-btn" id="copy-link-btn" aria-label="Copiar link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Copiar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ BODY ═══════════════════════════ -->
+  <main class="article-main">
+    <div class="article-layout">
+      <article class="article-prose" id="article-body">
+
+        <p class="article-lead">
+          Você nunca mais vai precisar de um desenvolvedor pra ter um app na Play Store. Essa é a frase que o Google deveria ter dito no I/O desta semana. Não disse. Mas é o que aconteceu.
+        </p>
+
+        <h2>O que o Google anunciou</h2>
+
+        <p>
+          Dentro do Google AI Studio (a plataforma de IA deles) agora você consegue descrever um app em português simples, ver o app sendo gerado em tempo real, testar no celular e publicar direto na Play Store.
+        </p>
+
+        <p>
+          Sem abrir Android Studio. Sem escrever uma linha de código. Sem contratar ninguém.
+        </p>
+
+        <p>
+          E o mais importante: não é um app fake. Não é um webview disfarçado. O Google enfatizou isso.
+        </p>
+
+        <div class="article-callout">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            O que o app gerado realmente é
+          </div>
+          <ul>
+            <li>Usa <strong>Kotlin</strong> — a linguagem oficial do Android, a mesma que qualquer dev profissional usa</li>
+            <li>Usa <strong>Jetpack Compose</strong> — o sistema de tela moderno do Android</li>
+            <li>Não é protótipo. Não é webview. É Android nativo de verdade</li>
+            <li>Pode ser testado no celular e publicado direto na Play Store</li>
+          </ul>
+        </div>
+
+        <p>
+          É Android de verdade. Só que você criou conversando.
+        </p>
+
+        <h2>Por que isso é maior do que parece</h2>
+
+        <p>
+          A maioria dos creators vai cobrir isso como: "agora dá pra criar app com IA."
+        </p>
+
+        <p>
+          Mas essa não é a história.
+        </p>
+
+        <p>
+          A história é que o Google acabou de destruir o maior gargalo do mercado de apps mobile: a publicação nativa.
+        </p>
+
+        <p>
+          Criar uma ideia de app é fácil. Transformar isso num app real, publicado na Play Store, com atualização, com backend, testado em múltiplos aparelhos: isso sempre foi complicado, caro e demorou semanas.
+        </p>
+
+        <p>
+          Ferramentas como Lovable, Base44 e Bolt resolveram parte disso pra web. Mas mobile nativo continuava difícil. Agora o Google colapsou esse caminho inteiro:
+        </p>
+
+        <div class="flow-compare">
+          <div class="flow-card antes">
+            <div class="flow-label">Antes</div>
+            <div class="flow-steps">
+              ideia<br>
+              contrata dev<br>
+              Android Studio<br>
+              semanas de build<br>
+              APK<br>
+              burocracia Play Console<br>
+              publicacao
+            </div>
+          </div>
+          <div class="flow-card agora">
+            <div class="flow-label">Agora</div>
+            <div class="flow-steps">
+              ideia<br>
+              prompt<br>
+              app<br>
+              Play Store
+            </div>
+          </div>
+        </div>
+
+        <h2>O que muda pra essas empresas de "criar app com IA"</h2>
+
+        <div class="companies-grid">
+          <span class="company-pill">Lovable</span>
+          <span class="company-pill">Base44</span>
+          <span class="company-pill">Bolt</span>
+          <span class="company-pill">Replit</span>
+          <span class="company-pill">Glide</span>
+          <span class="company-pill">Bubble</span>
+        </div>
+
+        <p>
+          Essas empresas valem bilhões hoje porque simplificaram a criação de software. Mas o maior problema delas sempre foi: apps mobile nativos. A Play Store é difícil. A App Store é difícil. Build mobile é infernal.
+        </p>
+
+        <p>
+          O Google acabou de entrar exatamente nesse território. E quando sistema operacional + Play Store + IA + distribuição ficam integrados num único lugar, a guerra muda completamente.
+        </p>
+
+        <p>
+          Isso não mata essas startups imediatamente. Elas ainda têm web apps, backend abstraído, multi-plataforma, colaboração em equipe. Mas o Google acabou de tornar parte da vantagem delas muito menor.
+        </p>
+
+        <h2>A Play Store está virando TikTok de software</h2>
+
+        <p>
+          O Google também anunciou mudanças na própria Play Store. <strong>Play Shorts</strong>: vídeos curtos de apps, estilo TikTok. <strong>Ask Play</strong>: você pergunta e a IA sugere o app certo. <strong>Gemini integrado</strong>: descoberta contextual e conversacional.
+        </p>
+
+        <p>
+          Isso significa que descobrir apps vai funcionar como algoritmo de redes sociais. O usuário não vai mais navegar por categoria, não vai mais pesquisar no campo de busca. Ele vai conversar. Receber recomendação. Instalar.
+        </p>
+
+        <p>
+          Exatamente como aconteceu com o TikTok no entretenimento.
+        </p>
+
+        <h2>O que isso muda pra creators brasileiros</h2>
+
+        <p>
+          Você tem uma audiência de 200 mil pessoas interessadas em futebol. Ou em finanças pessoais. Ou em culinária nordestina.
+        </p>
+
+        <p>
+          Antes, criar um app pra essa audiência precisava de dev, dinheiro e meses. Agora: você descreve o app, gera, publica, divulga pra sua audiência.
+        </p>
+
+        <p>
+          Influencer cria app. YouTuber cria app. Comunidade cria app. Creator vira software company. Sem software house. Sem investimento pesado.
+        </p>
+
+        <p>
+          E quando a Play Store começa a recomendar apps pelo algoritmo, igual o TikTok faz com vídeos, quem tem audiência e comunidade ganha.
+        </p>
+
+        <div class="article-callout">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/></svg>
+            Contexto brasileiro
+          </div>
+          <p>
+            Somos um dos países com mais tempo de tela por pessoa no mundo. App de nicho pra comunidade brasileira, com PIX integrado, tem mercado real. Essa janela está abrindo agora.
+          </p>
+        </div>
+
+        <h2>O insight que quase ninguém vai mencionar</h2>
+
+        <p>
+          Estamos entrando numa era onde criar software está virando tão acessível quanto criar vídeo.
+        </p>
+
+        <p>
+          Em 2010, fazer um vídeo profissional precisava de câmera cara, editor, estúdio. Em 2025, qualquer pessoa faz com o celular. Com software está acontecendo a mesma coisa. Só que mais rápido.
+        </p>
+
+        <div class="article-pullquote">
+          <p>"Deixa de ser: quem sabe programar. Passa a ser: quem tem audiência, quem tem distribuição, quem tem comunidade."</p>
+          <cite>João · @joaogptbr</cite>
+        </div>
+
+        <p>
+          Exatamente como aconteceu com ecommerce, design, música e conteúdo.
+        </p>
+
+        <h2>O que o Google realmente está tentando fazer</h2>
+
+        <p>
+          Não é ajudar programadores. O Google está tentando multiplicar violentamente a quantidade de software produzido no mundo.
+        </p>
+
+        <p>
+          Mais apps na Play Store significa mais tempo de tela. Mais tempo de tela significa mais dados. Mais dados significa mais publicidade. Mais publicidade significa mais dinheiro pro Google. O incentivo é claro.
+        </p>
+
+        <div class="article-callout warning">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            A consequência pra você
+          </div>
+          <p>
+            A barreira de entrada pra criar software mobile acabou de cair muito. Quem souber usar isso primeiro sai na frente.
+          </p>
+        </div>
+
+        <!-- ── Author box ───────────────────────────────────── -->
+        <div class="article-author-box">
+          <div class="article-author-box-avatar">J</div>
+          <div>
+            <div class="article-author-box-name">João</div>
+            <div class="article-author-box-handle">@joaogptbr</div>
+            <p class="article-author-box-bio">
+              Builder brasileiro construindo com IA todos os dias. Escrevo análises sobre inteligência artificial com contexto para o Brasil. Sem hype, sem tradução genérica.
+            </p>
+            <a href="https://x.com/joaogptbr" class="article-author-box-follow" target="_blank" rel="noopener">
+              Seguir no X
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Newsletter CTA ──────────────────────────────── -->
+        <div class="article-newsletter-cta">
+          <div class="article-newsletter-cta-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3>Próxima análise na sua caixa de entrada</h3>
+          <p>Uma newsletter semanal sobre IA com contexto para o Brasil. Sem spam.</p>
+          <form class="article-newsletter-form" id="article-newsletter-form" novalidate>
+            <input type="email" class="form-input" placeholder="seu@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Assinar</button>
+          </form>
+        </div>
+
+        <!-- ── Related articles ────────────────────────────── -->
+        <div class="article-related">
+          <p class="article-related-title">Continue lendo</p>
+          <div class="article-related-grid">
+            <a href="/artigos/cursor-sdk-infraestrutura-dev-brasileiro" class="article-related-card">
+              <span class="article-related-tag">Ferramentas</span>
+              <h4>O Cursor parou de ser editor. Quase ninguém no Brasil percebeu o que isso significa.</h4>
+              <p>19 Mai 2026 · 4 min</p>
+            </a>
+            <a href="/artigos/meta-ads-ai-connectors-interface-deixa-software" class="article-related-card">
+              <span class="article-related-tag">Análise</span>
+              <h4>A Meta abriu o Ads pra Claude. Sem alarde, declarou que a interface morreu.</h4>
+              <p>18 Mai 2026 · 6 min</p>
+            </a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo footer-logo">JOÃO<span>GPT</span></a>
+          <p class="footer-tagline">Mídia tech brasileira sobre IA.</p>
+          <div class="footer-social">
+            <a href="https://x.com/joaogptbr" class="footer-icon" target="_blank" rel="noopener" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com/joaogptbr" class="footer-icon" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Links do rodapé">
+          <div class="footer-col">
+            <p class="footer-col-title">Conteúdo</p>
+            <a href="/artigos" class="footer-link">Artigos</a>
+            <a href="/#newsletter" class="footer-link">Newsletter</a>
+            <a href="/#sobre" class="footer-link">Sobre</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Redes</p>
+            <a href="https://x.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">X / Twitter</a>
+            <a href="https://instagram.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://tiktok.com/@joaogptbr" class="footer-link" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://youtube.com/@joaogptbr" class="footer-link" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 JOÃOGPT · Todos os direitos reservados</p>
+        <p class="footer-sub">Feito com IA. Curado por humano.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    (function () {
+      const bar = document.getElementById('progress-bar');
+      const body = document.getElementById('article-body');
+      if (!bar || !body) return;
+      const update = () => {
+        const rect = body.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const scrolled = Math.max(0, -rect.top);
+        bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    (function () {
+      const btn = document.getElementById('copy-link-btn');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          const original = btn.innerHTML;
+          btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copiado!';
+          btn.style.color = 'var(--cyan)';
+          setTimeout(() => { btn.innerHTML = original; btn.style.color = ''; }, 2000);
+        });
+      });
+    })();
+
+    (function () {
+      const form = document.getElementById('article-newsletter-form');
+      if (!form) return;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const input = form.querySelector('.form-input');
+        const btn   = form.querySelector('.btn');
+        if (!input || !btn) return;
+        btn.textContent = '...';
+        btn.disabled = true;
+        await new Promise(r => setTimeout(r, 1200));
+        form.innerHTML = '<p style="color:var(--cyan);font-size:var(--text-sm);font-weight:600;">Confirmado! Verifique seu email.</p>';
+      });
+    })();
+  </script>
+
+</body>
+</html>
