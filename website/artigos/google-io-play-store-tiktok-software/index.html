@@ -401,8 +401,17 @@
           </div>
           <h3>Próxima análise na sua caixa de entrada</h3>
           <p>Uma newsletter semanal sobre IA com contexto para o Brasil. Sem spam.</p>
-          <form class="article-newsletter-form" id="article-newsletter-form" novalidate>
-            <input type="email" class="form-input" placeholder="seu@email.com" autocomplete="email" required>
+          <!-- iframe oculto: submete ao Beehiiv sem navegar a página -->
+          <iframe name="beehiiv-article-iframe" style="display:none" aria-hidden="true" tabindex="-1"></iframe>
+          <form class="article-newsletter-form" id="article-newsletter-form"
+            action="https://joaos-newsletter-430cdf.beehiiv.com/subscribe"
+            method="post"
+            target="beehiiv-article-iframe"
+            novalidate>
+            <input type="hidden" name="utm_source" value="artigo">
+            <input type="hidden" name="utm_medium" value="organic">
+            <input type="hidden" name="referring_site" value="joaogpt.com">
+            <input type="email" name="email" class="form-input" placeholder="seu@email.com" autocomplete="email" required>
             <button type="submit" class="btn btn-primary">Assinar</button>
           </form>
         </div>
@@ -499,15 +508,19 @@
     (function () {
       const form = document.getElementById('article-newsletter-form');
       if (!form) return;
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+      form.addEventListener('submit', function(e) {
         const input = form.querySelector('.form-input');
         const btn   = form.querySelector('.btn');
-        if (!input || !btn) return;
-        btn.textContent = '...';
-        btn.disabled = true;
-        await new Promise(r => setTimeout(r, 1200));
-        form.innerHTML = '<p style="color:var(--cyan);font-size:var(--text-sm);font-weight:600;">Confirmado! Verifique seu email.</p>';
+        const email = input ? input.value.trim() : '';
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          e.preventDefault();
+          return;
+        }
+        if (btn) { btn.textContent = '...'; btn.disabled = true; }
+        // Form submete nativamente ao Beehiiv via iframe oculto
+        setTimeout(() => {
+          form.innerHTML = '<p style="color:var(--cyan);font-size:var(--text-sm);font-weight:600;">Confirmado! Verifique seu email.</p>';
+        }, 1500);
       });
     })();
   </script>

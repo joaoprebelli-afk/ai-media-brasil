@@ -61,7 +61,7 @@
 })();
 
 
-/* ── Newsletter form ───────────────────────────────────────────── */
+/* ── Newsletter form — Beehiiv integration ─────────────────────── */
 (function initNewsletter() {
   const form    = document.getElementById('newsletter-form');
   const success = document.getElementById('newsletter-success');
@@ -72,52 +72,26 @@
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
+  form.addEventListener('submit', function (e) {
     const email = input.value.trim();
+
     if (!isValidEmail(email)) {
+      e.preventDefault(); // só bloqueia se inválido
       input.style.borderColor = 'rgba(239, 68, 68, 0.6)';
       input.focus();
       setTimeout(() => { input.style.borderColor = ''; }, 2000);
       return;
     }
 
-    // Loading state
+    // Email válido — form submete nativamente ao Beehiiv via iframe oculto
     btn.classList.add('loading');
     btn.disabled = true;
 
-    try {
-      /*
-       * TODO: Substituir por integração real com Brevo (ou outro ESP).
-       *
-       * Exemplo com Brevo:
-       * await fetch('https://api.brevo.com/v3/contacts', {
-       *   method: 'POST',
-       *   headers: {
-       *     'Content-Type': 'application/json',
-       *     'api-key': 'SUA_API_KEY_BREVO'
-       *   },
-       *   body: JSON.stringify({
-       *     email: email,
-       *     listIds: [SEU_LIST_ID],
-       *     updateEnabled: true
-       *   })
-       * });
-       *
-       * Por enquanto, simula um delay de rede.
-       */
-      await new Promise(resolve => setTimeout(resolve, 1200));
-
-      // Show success
+    // Mostra estado de sucesso após a submissão completar
+    setTimeout(() => {
       form.hidden = true;
       success.hidden = false;
-
-    } catch (err) {
-      console.error('Newsletter signup error:', err);
-      btn.classList.remove('loading');
-      btn.disabled = false;
-    }
+    }, 1500);
   });
 
   // Reset border on input
