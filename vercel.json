@@ -1,0 +1,8 @@
+{
+  "outputDirectory": "website",
+  "functions": {
+    "api/subscribe.js": {
+      "memory": 128
+    }
+  }
+}

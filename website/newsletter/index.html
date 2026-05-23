@@ -243,15 +243,7 @@
 
           <!-- ══ Form de inscrição Beehiiv ══ -->
           <div class="nl-form-wrap" id="nl-form-wrap">
-            <iframe name="beehiiv-nl-iframe" style="display:none" aria-hidden="true" tabindex="-1"></iframe>
-            <form class="nl-form" id="nl-subscribe-form"
-              action="https://joaos-newsletter-430cdf.beehiiv.com/subscribe"
-              method="post"
-              target="beehiiv-nl-iframe"
-              novalidate>
-              <input type="hidden" name="utm_source" value="newsletter-page">
-              <input type="hidden" name="utm_medium" value="organic">
-              <input type="hidden" name="referring_site" value="joaogpt.com">
+            <form class="nl-form" id="nl-subscribe-form" novalidate>
               <input
                 type="email"
                 name="email"
@@ -342,7 +334,7 @@
 
   <script src="/js/main.js"></script>
   <script>
-    /* ── Newsletter page form handler ──────────────────────────── */
+    /* ── Newsletter page form handler — /api/subscribe ─────────── */
     (function () {
       const form    = document.getElementById('nl-subscribe-form');
       const success = document.getElementById('nl-success');
@@ -352,22 +344,31 @@
 
       const isValid = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
         const email = input.value.trim();
         if (!isValid(email)) {
-          e.preventDefault();
           input.style.borderColor = 'rgba(239,68,68,.6)';
           input.focus();
           setTimeout(() => { input.style.borderColor = ''; }, 2000);
           return;
         }
-        // Email válido — submete nativamente ao Beehiiv via iframe oculto
         btn.textContent = '...';
         btn.disabled = true;
-        setTimeout(() => {
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, utm_source: 'newsletter-page', utm_medium: 'organic' }),
+          });
+          if (!res.ok) throw new Error('API error ' + res.status);
           form.style.display = 'none';
           success.style.display = 'flex';
-        }, 1500);
+        } catch (err) {
+          console.error('Newsletter error:', err);
+          btn.textContent = 'Assinar grátis';
+          btn.disabled = false;
+        }
       });
 
       input.addEventListener('input', () => { input.style.borderColor = ''; });

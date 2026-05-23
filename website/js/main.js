@@ -61,7 +61,7 @@
 })();
 
 
-/* ── Newsletter form — Beehiiv integration ─────────────────────── */
+/* ── Newsletter form — Beehiiv via /api/subscribe ──────────────── */
 (function initNewsletter() {
   const form    = document.getElementById('newsletter-form');
   const success = document.getElementById('newsletter-success');
@@ -72,26 +72,38 @@
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
     const email = input.value.trim();
 
     if (!isValidEmail(email)) {
-      e.preventDefault(); // só bloqueia se inválido
       input.style.borderColor = 'rgba(239, 68, 68, 0.6)';
       input.focus();
       setTimeout(() => { input.style.borderColor = ''; }, 2000);
       return;
     }
 
-    // Email válido — form submete nativamente ao Beehiiv via iframe oculto
     btn.classList.add('loading');
     btn.disabled = true;
 
-    // Mostra estado de sucesso após a submissão completar
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, utm_source: 'website', utm_medium: 'organic' }),
+      });
+
+      if (!res.ok) throw new Error('API error ' + res.status);
+
       form.hidden = true;
       success.hidden = false;
-    }, 1500);
+    } catch (err) {
+      console.error('Newsletter error:', err);
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      btn.textContent = 'Tentar novamente';
+    }
   });
 
   // Reset border on input
