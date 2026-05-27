@@ -1,0 +1,49 @@
+[
+  {
+    "type": "hook",
+    "headline": "O Google acabou de matar as fábricas de app.",
+    "subtext": "E quase ninguém no Brasil percebeu."
+  },
+  {
+    "type": "body",
+    "headline": "No Google I/O, qualquer pessoa pode criar um app Android real.",
+    "subtext": "Sem código. Só conversando com IA no Google AI Studio. O app vai direto pra Play Store."
+  },
+  {
+    "type": "stat",
+    "stat_number": "3M+",
+    "stat_label": "apps publicados na Play Store todo mês",
+    "headline": "Esse número vai explodir. O custo de criar um app caiu para zero."
+  },
+  {
+    "type": "list",
+    "headline": "O que mudou de verdade no Google I/O:",
+    "items": [
+      "Criar app: 30 minutos de conversa com IA",
+      "Publicar na Play Store: fluxo automatizado",
+      "Descoberta: algoritmo, igual TikTok, não keyword",
+      "Escala: um criador pode lançar 10 apps por semana"
+    ]
+  },
+  {
+    "type": "quote",
+    "headline": "A Play Store está virando TikTok de software.",
+    "subtext": "Não é mais sobre quem consegue programar. É sobre quem tem a ideia certa na hora certa."
+  },
+  {
+    "type": "body",
+    "headline": "Para o Brasil, isso é uma janela de 12 a 18 meses.",
+    "subtext": "Criadores de conteúdo, freelancers, empreendedores: a barreira de entrada virou zero. A janela vai fechar quando todo mundo souber disso."
+  },
+  {
+    "type": "stat",
+    "stat_number": "0",
+    "stat_label": "linhas de código necessárias para criar e publicar um app",
+    "headline": "A pergunta não é mais 'como codar'. É 'qual problema resolver'."
+  },
+  {
+    "type": "cta",
+    "headline": "Quer entender cada mudança de IA antes que chegue ao Brasil?",
+    "subtext": "Newsletter semanal. Sem hype. Com contexto para você agir."
+  }
+]

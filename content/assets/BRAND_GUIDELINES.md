@@ -30,16 +30,16 @@ Austero como um terminal. Atraente como um produto Apple. Confiável como um das
 ### Cores de acento (brand colors)
 | Nome         | Hex       | Uso                                      |
 |--------------|-----------|------------------------------------------|
-| Electric     | `#6C63FF` | Cor primária — CTAs, destaques           |
-| Cyan         | `#00D4FF` | Cor secundária — ícones, subtítulos      |
-| Neon         | `#A855F7` | Gradientes, elementos de ênfase          |
-| Pulse        | `#22D3EE` | Highlights técnicos, badges              |
+| Verde        | `#C4F55A` | Cor primária — CTAs, destaques, glow     |
+| Verde Soft   | `#4ADE80` | Cor secundária — ícones, subtítulos      |
+| Verde Deep   | `#22C55E` | Gradientes, elementos de ênfase          |
+| Azul Suave   | `#6BA8FF` | Contraste ocasional, badges técnicos     |
 
 ### Gradientes (use sempre que precisar de energia visual)
 ```
-Brand Gradient:    #6C63FF → #00D4FF  (diagonal 135°)
-Purple Shift:      #A855F7 → #6C63FF  (vertical)
-Cyan Glow:         #0D0D1A → #00D4FF  (radial, centro suave)
+Brand Gradient:    #C4F55A → #4ADE80  (diagonal 135°)
+Green Shift:       #22C55E → #C4F55A  (vertical)
+Green Glow:        #0A0A0B → #C4F55A  (radial, centro suave)
 Dark Surface:      #080810 → #1C1C2E  (vertical, fundo)
 Alert Gradient:    #FF6B6B → #FF8E53  (somente erros/urgência)
 ```
@@ -58,7 +58,7 @@ Alert Gradient:    #FF6B6B → #FF8E53  (somente erros/urgência)
 | Sucesso    | `#10B981` |
 | Alerta     | `#F59E0B` |
 | Erro       | `#EF4444` |
-| Info       | `#6C63FF` |
+| Info       | `#6BA8FF` |
 
 ---
 
@@ -148,38 +148,38 @@ Usar em cards e panels principais.
 border: 1px solid transparent
 background-clip: padding-box
 background-image: linear-gradient(#13131F, #13131F),
-                  linear-gradient(135deg, #6C63FF, #00D4FF)
+                  linear-gradient(135deg, #C4F55A, #4ADE80)
 ```
 
 ### 5.2 Glow Effect (brilho de acento)
 Sutil — apenas em elementos de destaque máximo.
 ```
-box-shadow: 0 0 40px rgba(108, 99, 255, 0.25),
-            0 0 80px rgba(0, 212, 255, 0.10)
+box-shadow: 0 0 40px rgba(196, 245, 90, 0.25),
+            0 0 80px rgba(196, 245, 90, 0.10)
 ```
 
 ### 5.3 Grid Overlay (malha técnica de fundo)
 Opcional — adiciona sensação de precisão técnica.
 ```
-background-image: linear-gradient(rgba(108,99,255,0.03) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(108,99,255,0.03) 1px, transparent 1px)
+background-image: linear-gradient(rgba(196,245,90,0.03) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(196,245,90,0.03) 1px, transparent 1px)
 background-size: 40px 40px
 ```
 
 ### 5.4 Badge / Tag style
 ```
-Background: rgba(108, 99, 255, 0.15)
-Border: 1px solid rgba(108, 99, 255, 0.40)
+Background: rgba(196, 245, 90, 0.12)
+Border: 1px solid rgba(196, 245, 90, 0.35)
 Border-radius: 6px
 Padding: 4px 12px
 Font: JetBrains Mono 500 14-18px
-Cor texto: #A855F7 ou #00D4FF
+Cor texto: #C4F55A ou #4ADE80
 ```
 
 ### 5.5 Texto gradiente
 Para palavras-chave no título que precisam de máximo impacto:
 ```
-background: linear-gradient(135deg, #6C63FF, #00D4FF)
+background: linear-gradient(135deg, #C4F55A, #4ADE80)
 -webkit-background-clip: text
 -webkit-text-fill-color: transparent
 ```
@@ -349,9 +349,9 @@ Use estes valores exatos nos prompts de geração de imagem:
 ```
 STYLE_PROMPT_BASE = """
 dark mode, premium AI aesthetic, minimalist, high contrast,
-deep black background (#080810), electric purple (#6C63FF) and cyan (#00D4FF) accents,
+deep black background (#0A0A0B), lime green (#C4F55A) accent with subtle glow,
 Space Grotesk typography, clean geometric composition,
-subtle grid overlay, neon glow effects, 8K quality, no noise
+subtle grid overlay, green neon glow effects, 8K quality, no noise
 """
 
 STYLE_NEGATIVE = """
