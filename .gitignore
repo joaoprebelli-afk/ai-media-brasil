@@ -22,3 +22,9 @@ Thumbs.db
 
 # outputs temporários
 outputs/
+
+# migração Astro pausada
+astro.config.mjs
+tsconfig.json
+src/
+public/
