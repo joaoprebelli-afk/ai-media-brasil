@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel — Gemini Spark: o agente 24/7 do Google | JOÃOGPT</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #060609;
+      color: #E8E8F0;
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      max-width: 580px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .page-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #E8E8F0;
+      margin-bottom: 8px;
+    }
+    .page-logo span { color: #C4F55A; }
+    .page-title {
+      font-size: 1rem;
+      color: #4A4A62;
+      margin-bottom: 24px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .page-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-dl-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: #C4F55A;
+      color: #080810;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn-dl-all:hover { opacity: 0.88; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: transparent;
+      color: #8B8B9E;
+      border: 1px solid #2A2A42;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-ghost:hover { color: #E8E8F0; border-color: #4A4A62; }
+
+    /* ── Slides grid ── */
+    .slides-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ── Slide wrapper ── */
+    .slide {
+      position: relative;
+      width: 540px;
+      height: 675px;
+      background: linear-gradient(160deg, #0D0D12 0%, #111117 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #1C1C2A;
+      flex-shrink: 0;
+    }
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 40% at 50% 0%, rgba(196,245,90,0.07), transparent 60%),
+        radial-gradient(ellipse 40% 40% at 100% 100%, rgba(196,245,90,0.04), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Header ── */
+    .slide-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 20px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 2;
+    }
+    .slide-logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #E8E8F0;
+    }
+    .slide-logo-accent { color: #C4F55A; }
+    .slide-counter {
+      font-size: 11px;
+      font-weight: 600;
+      color: #4A4A62;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Content area ── */
+    .slide-content {
+      position: absolute;
+      top: 58px; bottom: 72px; left: 24px; right: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    /* ── Footer ── */
+    .slide-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 12px 24px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      z-index: 2;
+    }
+    .slide-dots { display: flex; gap: 4px; align-items: center; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: #2A2A42; }
+    .dot-active { background: #C4F55A; }
+    .slide-handle {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #4A4A62;
+    }
+
+    /* ── Export button (per slide) ── */
+    .slide-export-btn {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #8B8B9E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      opacity: 0;
+      transition: opacity 0.2s, color 0.15s, background 0.15s;
+      z-index: 10;
+    }
+    .slide:hover .slide-export-btn { opacity: 1; }
+    .slide-export-btn:hover { color: #C4F55A; background: rgba(196,245,90,0.1); }
+
+    /* ── Slide types ── */
+
+    /* Hook */
+    .slide-hook { text-align: left; width: 100%; }
+    .slide-hook-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #C4F55A;
+      margin-bottom: 14px;
+    }
+    .hook-headline {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+    .slide-subtext {
+      font-size: 0.875rem;
+      color: #8B8B9E;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* Body */
+    .slide-body { text-align: left; width: 100%; }
+    .slide-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .slide-headline {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+
+    /* Stat */
+    .slide-stat { text-align: center; width: 100%; }
+    .stat-number {
+      font-size: 5rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #C4F55A;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: #8B8B9E;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .stat-headline {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.45;
+      color: #E8E8F0;
+    }
+
+    /* List */
+    .slide-list { text-align: left; width: 100%; }
+    .list-headline {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+    .slide-items { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: #C8C8D4;
+      line-height: 1.5;
+    }
+    .list-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #C4F55A;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* CTA */
+    .slide-cta { text-align: center; width: 100%; }
+    .cta-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #E8E8F0;
+      margin-bottom: 20px;
+    }
+    .cta-logo span { color: #C4F55A; }
+    .cta-headline {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .cta-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 18px;
+      background: #C4F55A;
+      color: #080810;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .cta-pill-outline {
+      background: transparent;
+      color: #C4F55A;
+      border: 1px solid rgba(196, 245, 90, 0.4);
+    }
+
+    /* ── Progress ── */
+    #progress {
+      position: fixed;
+      bottom: 20px; right: 20px;
+      background: #1C1C2A;
+      border: 1px solid #2A2A42;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      color: #8B8B9E;
+      display: none;
+      z-index: 999;
+    }
+    #progress.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <div class="page-logo">JOÃO<span>GPT</span></div>
+    <p class="page-title">O Google colocou um agente dentro do Gmail, Drive e Calendar. E ele trabalha quando você não está.</p>
+    <div class="page-actions">
+      <button class="btn-dl-all" onclick="exportAll()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        Baixar todos (7 slides)
+      </button>
+      <button class="btn-ghost" onclick="copyJson()">
+        Copiar JSON
+      </button>
+    </div>
+  </div>
+
+  <div class="slides-grid" id="slides-grid">
+
+    <!-- Slide 1: Hook -->
+    <div class="slide" id="slide-1" data-index="1">
+      <div class="slide-header">
+        <span class="slide-logo">JOÃO<span class="slide-logo-accent">GPT</span></span>
+        <span class="slide-counter">1/7</span>
+      </div>
+      <div class="slide-content">
+        <div class="slide-hook">
+          <div class="slide-hook-label">O que você precisa saber</div>
+          <h2 class="hook-headline">O Google colocou um agente dentro do seu Gmail.</h2>
+          <p class="slide-subtext">E ele continua trabalhando quando você fecha o notebook.</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div class="slide-dots">
+          <span class="dot dot-active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="slide-handle">@joaogptbr</span>
+      </div>
+      <button class="slide-export-btn" onclick="exportSlide(1)" title="Download PNG">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slide 2: Body — O que é o Gemini Spark -->
+    <div class="slide" id="slide-2" data-index="2">
+      <div class="slide-header">
+        <span class="slide-logo">JOÃO<span class="slide-logo-accent">GPT</span></span>
+        <span class="slide-counter">2/7</span>
+      </div>
+      <div class="slide-content">
+        <div class="slide-body">
+          <span class="slide-icon">🤖</span>
+          <h2 class="slide-headline">O que é o Gemini Spark</h2>
+          <p class="slide-subtext">Agente de IA pessoal 24/7 anunciado no Google I/O 2026. Roda em VMs dedicadas no Google Cloud. Integrado nativamente ao Gmail, Drive, Calendar, Docs, Sheets e Slides.</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div class="slide-dots">
+          <span class="dot"></span><span class="dot dot-active"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="slide-handle">@joaogptbr</span>
+      </div>
+      <button class="slide-export-btn" onclick="exportSlide(2)" title="Download PNG">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slide 3: Body — Por que é diferente -->
+    <div class="slide" id="slide-3" data-index="3">
+      <div class="slide-header">
+        <span class="slide-logo">JOÃO<span class="slide-logo-accent">GPT</span></span>
+        <span class="slide-counter">3/7</span>
+      </div>
+      <div class="slide-content">
+        <div class="slide-body">
+          <span class="slide-icon">⚡</span>
+          <h2 class="slide-headline">Por que é diferente do ChatGPT e do Claude</h2>
+          <p class="slide-subtext">Os outros agentes chegam de fora e precisam de integrações. O Spark nasceu dentro do Workspace. Acesso direto, sem pontes, onde o seu trabalho já acontece.</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div class="slide-dots">
+          <span class="dot"></span><span class="dot"></span><span class="dot dot-active"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="slide-handle">@joaogptbr</span>
+      </div>
+      <button class="slide-export-btn" onclick="exportSlide(3)" title="Download PNG">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slide 4: List — O que ele faz -->
+    <div class="slide" id="slide-4" data-index="4">
+      <div class="slide-header">
+        <span class="slide-logo">JOÃO<span class="slide-logo-accent">GPT</span></span>
+        <span class="slide-counter">4/7</span>
+      </div>
+      <div class="slide-content">
+        <div class="slide-list">
+          <h2 class="list-headline">O que ele faz enquanto você não está</h2>
+          <ul class="slide-items">
+            <li class="list-item"><span class="list-dot"></span>Resumir e priorizar a semana de emails</li>
+            <li class="list-item"><span class="list-dot"></span>Criar blocos de foco no Calendar</li>
+            <li class="list-item"><span class="list-dot"></span>Organizar arquivos no Drive</li>
+            <li class="list-item"><span class="list-dot"></span>Rastrear vagas e monitorar faturas em segundo plano</li>
+            <li class="list-item"><span class="list-dot"></span>Draftar respostas no seu estilo de escrita</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div class="slide-dots">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot dot-active"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="slide-handle">@joaogptbr</span>
+      </div>
+      <button class="slide-export-btn" onclick="exportSlide(4)" title="Download PNG">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slide 5: Stat — 24/7 -->
+    <div class="slide" id="slide-5" data-index="5">
+      <div class="slide-header">
+        <span class="slide-logo">JOÃO<span class="slide-logo-accent">GPT</span></span>
+        <span class="slide-counter">5/7</span>
+      </div>
+      <div class="slide-content">
+        <div class="slide-stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">rodando em VMs no Google Cloud</div>
+          <h2 class="stat-headline">Continua mesmo com todos os dispositivos desligados. Ações importantes precisam da sua aprovação antes de executar.</h2>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div class="slide-dots">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot dot-active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="slide-handle">@joaogptbr</span>
+      </div>
+      <button class="slide-export-btn" onclick="exportSlide(5)" title="Download PNG">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slide 6: Body — O que ainda não é realidade -->
+    <div class="slide" id="slide-6" data-index="6">
+      <div class="slide-header">
+        <span class="slide-logo">JOÃO<span class="slide-logo-accent">GPT</span></span>
+        <span class="slide-counter">6/7</span>
+      </div>
+      <div class="slide-content">
+        <div class="slide-body">
+          <span class="slide-icon">⏳</span>
+          <h2 class="slide-headline">O que ainda não é realidade</h2>
+          <p class="slide-subtext">Só para trusted testers agora. Beta para Google AI Ultra nos EUA (~US$100/mês). Brasil e outros países: sem data confirmada. Desempenho real em tarefas complexas ainda não tem dados públicos.</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div class="slide-dots">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot dot-active"></span><span class="dot"></span>
+        </div>
+        <span class="slide-handle">@joaogptbr</span>
+      </div>
+      <button class="slide-export-btn" onclick="exportSlide(6)" title="Download PNG">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slide 7: CTA -->
+    <div class="slide" id="slide-7" data-index="7">
+      <div class="slide-header">
+        <span class="slide-logo">JOÃO<span class="slide-logo-accent">GPT</span></span>
+        <span class="slide-counter">7/7</span>
+      </div>
+      <div class="slide-content">
+        <div class="slide-cta">
+          <div class="cta-logo">JOÃO<span>GPT</span></div>
+          <h2 class="cta-headline">Análises semanais de IA com contexto para o Brasil.</h2>
+          <p class="slide-subtext">Antes que chegue por aqui, você já vai entender o que vem por aí.</p>
+          <div class="cta-actions">
+            <div class="cta-pill">Assina a newsletter</div>
+            <div class="cta-pill cta-pill-outline">@joaogptbr</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div class="slide-dots">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot dot-active"></span>
+        </div>
+        <span class="slide-handle">@joaogptbr</span>
+      </div>
+      <button class="slide-export-btn" onclick="exportSlide(7)" title="Download PNG">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
+
+  </div><!-- /slides-grid -->
+
+  <div id="progress">Exportando slides...</div>
+
+  <script>
+    const SLIDES_JSON = [
+      {"type":"hook","headline":"O Google colocou um agente dentro do seu Gmail.","subtext":"E ele continua trabalhando quando você fecha o notebook."},
+      {"type":"body","titulo":"O que é o Gemini Spark","texto":"Agente de IA pessoal 24/7 anunciado no Google I/O 2026. Roda em VMs dedicadas no Google Cloud. Integrado nativamente ao Gmail, Drive, Calendar, Docs, Sheets e Slides.","icone":"🤖"},
+      {"type":"body","titulo":"Por que é diferente do ChatGPT e do Claude","texto":"Os outros agentes chegam de fora e precisam de integrações. O Spark nasceu dentro do Workspace. Acesso direto, sem pontes, onde o seu trabalho já acontece.","icone":"⚡"},
+      {"type":"list","titulo":"O que ele faz enquanto você não está","items":["Resumir e priorizar a semana de emails","Criar blocos de foco no Calendar","Organizar arquivos no Drive","Rastrear vagas e monitorar faturas em segundo plano","Draftar respostas no seu estilo de escrita"]},
+      {"type":"stat","stat_number":"24/7","stat_label":"rodando em VMs no Google Cloud","contexto":"Continua mesmo com todos os dispositivos desligados. Ações importantes precisam da sua aprovação antes de executar."},
+      {"type":"body","titulo":"O que ainda não é realidade","texto":"Só para trusted testers agora. Beta para Google AI Ultra nos EUA (~US$100/mês). Brasil e outros países: sem data confirmada. Desempenho real em tarefas complexas ainda não tem dados públicos.","icone":"⏳"},
+      {"type":"cta","headline":"Análises semanais de IA com contexto para o Brasil.","subtext":"Antes que chegue por aqui, você já vai entender o que vem por aí.","cta_acao":"Assina a newsletter"}
+    ];
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function exportSlide(index) {
+      const slide = document.getElementById('slide-' + index);
+      if (!slide) return;
+
+      const prevW = slide.style.width;
+      const prevH = slide.style.height;
+      slide.style.width  = '1080px';
+      slide.style.height = '1350px';
+      slide.style.borderRadius = '0';
+      slide.style.fontSize = '2em';
+
+      await sleep(100);
+
+      const canvas = await html2canvas(slide, {
+        width: 1080,
+        height: 1350,
+        scale: 1,
+        useCORS: true,
+        backgroundColor: '#0D0D12',
+        logging: false,
+        allowTaint: true
+      });
+
+      slide.style.width  = prevW;
+      slide.style.height = prevH;
+      slide.style.borderRadius = '';
+      slide.style.fontSize = '';
+
+      const link = document.createElement('a');
+      link.download = `joaogpt-gemini-spark-slide-0${index}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    async function exportAll() {
+      const progress = document.getElementById('progress');
+      progress.classList.add('visible');
+
+      for (let i = 1; i <= 7; i++) {
+        progress.textContent = `Exportando slide ${i}/7...`;
+        await exportSlide(i);
+        await sleep(1000);
+      }
+
+      progress.textContent = '✓ Pronto! 7 slides baixados.';
+      await sleep(2500);
+      progress.classList.remove('visible');
+    }
+
+    function copyJson() {
+      navigator.clipboard.writeText(JSON.stringify(SLIDES_JSON, null, 2));
+      const btn = document.querySelector('.btn-ghost');
+      const orig = btn.textContent;
+      btn.textContent = 'Copiado!';
+      setTimeout(() => { btn.textContent = orig; }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+[
+  {
+    "type": "hook",
+    "headline": "O Google colocou um agente dentro do seu Gmail.",
+    "subtext": "E ele continua trabalhando quando você fecha o notebook."
+  },
+  {
+    "type": "body",
+    "titulo": "O que é o Gemini Spark",
+    "texto": "Agente de IA pessoal 24/7 anunciado no Google I/O 2026. Roda em VMs dedicadas no Google Cloud. Integrado nativamente ao Gmail, Drive, Calendar, Docs, Sheets e Slides.",
+    "icone": "🤖"
+  },
+  {
+    "type": "body",
+    "titulo": "Por que é diferente do ChatGPT e do Claude",
+    "texto": "Os outros agentes chegam de fora e precisam de integrações. O Spark nasceu dentro do Workspace. Acesso direto, sem pontes, onde o seu trabalho já acontece.",
+    "icone": "⚡"
+  },
+  {
+    "type": "list",
+    "titulo": "O que ele faz enquanto você não está",
+    "items": [
+      "Resumir e priorizar a semana de emails",
+      "Criar blocos de foco no Calendar",
+      "Organizar arquivos no Drive",
+      "Rastrear vagas e monitorar faturas em segundo plano",
+      "Draftar respostas no seu estilo de escrita"
+    ]
+  },
+  {
+    "type": "stat",
+    "stat_number": "24/7",
+    "stat_label": "rodando em VMs no Google Cloud",
+    "contexto": "Continua mesmo com todos os dispositivos desligados. Ações importantes precisam da sua aprovação antes de executar."
+  },
+  {
+    "type": "body",
+    "titulo": "O que ainda não é realidade",
+    "texto": "Só para trusted testers agora. Beta para Google AI Ultra nos EUA (~US$100/mês). Brasil e outros países: sem data confirmada. Desempenho real em tarefas complexas ainda não tem dados públicos.",
+    "icone": "⏳"
+  },
+  {
+    "type": "cta",
+    "headline": "Análises semanais de IA com contexto para o Brasil.",
+    "subtext": "Antes que chegue por aqui, você já vai entender o que vem por aí.",
+    "cta_acao": "Assina a newsletter"
+  }
+]
