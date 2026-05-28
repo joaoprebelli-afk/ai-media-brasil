@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>O Google colocou um agente dentro do lugar onde você já trabalha — JOÃOGPT</title>
+  <meta name="description" content="No I/O 2026, o Google anunciou o Gemini Spark: um agente pessoal 24/7 que roda em VMs no Google Cloud e vive dentro do Gmail, Drive e Calendar. Ainda não está no Brasil. Mas o que ele representa já importa agora.">
+  <meta name="author" content="João · @joaogptbr">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://joaogpt.com/artigos/gemini-spark-agente-ia-google">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://joaogpt.com/artigos/gemini-spark-agente-ia-google">
+  <meta property="og:title" content="O Google colocou um agente dentro do lugar onde você já trabalha">
+  <meta property="og:description" content="O Gemini Spark não chegou de fora. Ele nasceu dentro do Workspace. Gmail, Drive, Calendar. E continua rodando quando você fecha o notebook.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:published_time" content="2026-05-27">
+  <meta property="article:author" content="João">
+  <meta property="article:tag" content="Google, Gemini, Agentes de IA, Workspace, Google I/O">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@joaogptbr">
+  <meta name="twitter:creator" content="@joaogptbr">
+  <meta name="twitter:title" content="O Google colocou um agente dentro do lugar onde você já trabalha">
+  <meta name="twitter:description" content="O Gemini Spark nasceu dentro do Workspace. Não é integração. É o mesmo ambiente onde os seus dados já moram.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "O Google colocou um agente dentro do lugar onde você já trabalha",
+    "description": "No I/O 2026, o Google anunciou o Gemini Spark: um agente pessoal 24/7 que roda em VMs no Google Cloud e vive dentro do Gmail, Drive e Calendar.",
+    "author": { "@type": "Person", "name": "João", "url": "https://x.com/joaogptbr" },
+    "publisher": { "@type": "Organization", "name": "JOÃOGPT", "url": "https://joaogpt.com" },
+    "datePublished": "2026-05-27",
+    "inLanguage": "pt-BR",
+    "url": "https://joaogpt.com/artigos/gemini-spark-agente-ia-google"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/article.css">
+
+  <style>
+    /* Tabela de fatos confirmados */
+    .facts-table {
+      background: var(--surface-2, #1C1C2E);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin: 32px 0;
+    }
+    .facts-table-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--electric, #C4F55A);
+      margin-bottom: 16px;
+      font-family: var(--font-mono, monospace);
+    }
+    .facts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .facts-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-primary, #F0F0FF);
+      line-height: 1.55;
+    }
+    .facts-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--electric, #C4F55A);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    /* Comparativo concorrentes */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 28px 0;
+    }
+    .compare-card {
+      background: var(--surface-2, #1C1C2E);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .compare-card.highlight {
+      border-top: 2px solid var(--electric, #C4F55A);
+      box-shadow: 0 0 24px rgba(196,245,90,0.06);
+    }
+    .compare-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted, #5a5a7a);
+      margin-bottom: 8px;
+    }
+    .compare-card.highlight .compare-name { color: var(--electric, #C4F55A); }
+    .compare-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted, #a0a0c0);
+      line-height: 1.5;
+    }
+    .compare-card.highlight .compare-desc { color: var(--text-primary, #F0F0FF); }
+    @media (max-width: 600px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="article-progress" aria-hidden="true">
+    <div class="article-progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo" aria-label="JOÃOGPT — home">JOÃO<span>GPT</span></a>
+      <div class="nav-center">
+        <a href="/artigos" class="nav-link" aria-current="page">Artigos</a>
+        <a href="/#sobre" class="nav-link">Sobre</a>
+        <a href="/#newsletter" class="nav-link">Newsletter</a>
+      </div>
+      <div class="nav-end">
+        <a href="https://x.com/joaogptbr" class="nav-icon" target="_blank" rel="noopener" aria-label="X">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="/#newsletter" class="btn btn-primary btn-sm">Assinar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <header class="article-hero">
+    <div class="container article-hero-inner">
+
+      <div class="article-meta-row">
+        <a href="/artigos" class="article-breadcrumb">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Artigos
+        </a>
+        <span class="article-meta-sep"></span>
+        <span class="article-tag tag-analysis">Análise</span>
+        <span class="article-meta-sep"></span>
+        <span class="article-date">27 Mai 2026</span>
+        <span class="article-meta-sep"></span>
+        <span class="article-read">5 min de leitura</span>
+      </div>
+
+      <h1 class="article-title">
+        O Google colocou um agente dentro do lugar onde você já trabalha
+      </h1>
+
+      <p class="article-excerpt">
+        No I/O 2026, o Google anunciou o Gemini Spark: um agente que mora dentro do Gmail, do Drive e do Calendar, e continua rodando quando você fecha o notebook. Ainda não está no Brasil. Mas o que ele representa já importa agora.
+      </p>
+
+      <div class="article-byline">
+        <div class="article-author">
+          <div class="article-author-avatar">J</div>
+          <div>
+            <span class="article-author-name">João</span>
+            <span class="article-author-handle">@joaogptbr</span>
+          </div>
+        </div>
+        <div class="article-share">
+          <span class="share-label">Compartilhar</span>
+          <a
+            href="https://x.com/intent/tweet?text=O%20Google%20colocou%20um%20agente%20dentro%20do%20lugar%20onde%20voc%C3%AA%20j%C3%A1%20trabalha&url=https%3A%2F%2Fjoaogpt.com%2Fartigos%2Fgemini-spark-agente-ia-google&via=joaogptbr"
+            class="share-btn" target="_blank" rel="noopener" aria-label="Compartilhar no X"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X
+          </a>
+          <button class="share-btn" id="copy-link-btn" aria-label="Copiar link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Copiar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ BODY ═══════════════════════════ -->
+  <main class="article-main">
+    <div class="article-layout">
+      <article class="article-prose" id="article-body">
+
+        <p class="article-lead">
+          No I/O 2026, o Google anunciou algo diferente de tudo que foi lançado antes na corrida de agentes de IA. Não é um chatbot mais rápido. Não é uma integração nova via API. É um agente que mora dentro do Gmail, do Drive e do Calendar, e continua rodando quando você fecha o notebook.
+        </p>
+
+        <p>
+          Chama Gemini Spark.
+        </p>
+
+        <div class="article-callout warning">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            Disponibilidade atual
+          </div>
+          <p>
+            O Spark ainda não está no Brasil. Disponível agora só para trusted testers nos EUA. Depois, vai para beta para assinantes do Google AI Ultra, plano de aproximadamente cem dólares por mês. Sem data confirmada para outros países.
+          </p>
+        </div>
+
+        <h2>A diferença estrutural</h2>
+
+        <p>
+          A maioria dos agentes de IA chega de fora. ChatGPT, Claude, Perplexity: você dá permissão, eles tentam se conectar às suas ferramentas via integração, OAuth, ou MCP.
+        </p>
+
+        <p>
+          O Spark não chegou de fora. Ele nasceu dentro do Workspace.
+        </p>
+
+        <p>
+          Isso muda o que ele consegue fazer. Acesso direto ao Gmail, sem ponte. Acesso ao Calendar, ao Drive, ao Docs, ao Sheets. Não é integração. É o mesmo ambiente onde os seus dados já moram.
+        </p>
+
+        <div class="compare-grid">
+          <div class="compare-card">
+            <div class="compare-name">ChatGPT / Operator</div>
+            <div class="compare-desc">Chega de fora. Precisa de permissões e integrações via API.</div>
+          </div>
+          <div class="compare-card">
+            <div class="compare-name">Claude / Computer Use</div>
+            <div class="compare-desc">Chega de fora. Acessa ferramentas por MCP ou automação de tela.</div>
+          </div>
+          <div class="compare-card highlight">
+            <div class="compare-name">Gemini Spark</div>
+            <div class="compare-desc">Nasceu dentro do Workspace. Acesso nativo. Sem pontes.</div>
+          </div>
+        </div>
+
+        <p>
+          E o Google colocou esse agente rodando 24 horas por dia em VMs dedicadas no Google Cloud, com Gemini 3.5 Flash mais o que chamam de Antigravity para tarefas de longo horizonte.
+        </p>
+
+        <p>
+          Você fecha o notebook às 23h. O Spark pode continuar monitorando, resumindo, organizando.
+        </p>
+
+        <h2>O que está confirmado</h2>
+
+        <p>
+          Esses são os fatos confirmados pelo Google, sem especulação:
+        </p>
+
+        <div class="facts-table">
+          <div class="facts-table-title">Confirmado pelo Google</div>
+          <ul class="facts-list">
+            <li>Tarefas autônomas em background: resumir semana de emails, criar blocos de foco no Calendar, organizar arquivos no Drive, rastrear vagas, monitorar faturas</li>
+            <li>Skills personalizáveis: você pode configurar estilos de escrita de email, fluxos recorrentes, padrões de priorização</li>
+            <li>Schedules: tarefas que rodam automaticamente, como um scan semanal da inbox</li>
+            <li>Aprovação para ações de alto impacto: o Spark não age sem você em decisões importantes</li>
+            <li>VMs dedicadas no Google Cloud com Gemini 3.5 Flash e tecnologia Antigravity</li>
+          </ul>
+        </div>
+
+        <h2>O que ainda não é realidade</h2>
+
+        <p>
+          Isso precisa ficar claro antes de qualquer empolgação.
+        </p>
+
+        <div class="article-callout">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            O que ainda não tem
+          </div>
+          <ul>
+            <li><strong>Brasil:</strong> sem data confirmada para chegada</li>
+            <li><strong>Usuários gratuitos:</strong> sem previsão</li>
+            <li><strong>Desempenho real em tarefas complexas:</strong> sem dados públicos. O que existe são demos e promessas do Google</li>
+            <li><strong>Detalhes completos de privacidade:</strong> o Google diz que o usuário controla o que o Spark acessa, mas os termos completos ainda não foram publicados</li>
+          </ul>
+        </div>
+
+        <p>
+          O Google tem histórico de anunciar antes de entregar. O que existe hoje são demonstrações controladas e comunicados oficiais. Dados reais de desempenho em tarefas longas e complexas ainda não existem publicamente.
+        </p>
+
+        <h2>Por que importa mesmo assim</h2>
+
+        <p>
+          A questão não é se o Spark é bom ou ruim. É o que ele representa como modelo.
+        </p>
+
+        <p>
+          O Google tem bilhões de usuários no Gmail. Essas pessoas já confiam dados pessoais e profissionais ao Workspace. O agente vai estar exatamente onde o trabalho já acontece, com acesso nativo que concorrentes externos não têm como replicar com a mesma fluidez.
+        </p>
+
+        <div class="article-pullquote">
+          <p>"OpenAI tem o Operator. Anthropic tem Computer Use. Ambos chegam de fora e precisam de permissões. O Spark tem território."</p>
+          <cite>João · @joaogptbr</cite>
+        </div>
+
+        <p>
+          Se funcionar como prometido, é um salto qualitativo na categoria de agentes pessoais. Não porque o modelo seja o mais avançado, mas porque o contexto é nativo.
+        </p>
+
+        <h2>O que acompanhar</h2>
+
+        <p>
+          Três coisas que vão dizer se isso é real ou mais um anúncio do Google:
+        </p>
+
+        <p>
+          <strong>Desempenho fora de demo.</strong> Agentes erram mais em tarefas complexas com muitas etapas. Os dados reais só vão aparecer quando o produto sair do beta.
+        </p>
+
+        <p>
+          <strong>Os detalhes de privacidade.</strong> Dar a um agente acesso permanente ao Gmail é uma decisão séria. A transparência sobre o que é lido, processado e armazenado vai definir a adoção.
+        </p>
+
+        <p>
+          <strong>O rollout fora dos EUA.</strong> Enquanto ficar restrito a um plano de cem dólares por mês para usuários americanos, o impacto no Brasil é indireto. Mas o padrão que está sendo estabelecido agora vai chegar.
+        </p>
+
+        <!-- ── Sources ────────────────────────────────────── -->
+        <div class="article-callout">
+          <div class="article-callout-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            Fontes
+          </div>
+          <ul>
+            <li><a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" target="_blank" rel="noopener">Google Blog: The next evolution of the Gemini app</a></li>
+            <li><a href="https://gemini.google/overview/agent/spark/" target="_blank" rel="noopener">Google: Gemini Spark overview</a></li>
+            <li><a href="https://techcrunch.com/2026/05/19/google-introduces-gemini-spark-a-24-7-agentic-assistant-with-gmail-integration/" target="_blank" rel="noopener">TechCrunch: Google introduces Gemini Spark</a></li>
+            <li><a href="https://www.theverge.com/tech/932996/google-gemini-spark-antigravity-io-2026" target="_blank" rel="noopener">The Verge: Google Gemini Spark and Antigravity at I/O 2026</a></li>
+          </ul>
+        </div>
+
+        <!-- ── Author box ───────────────────────────────────── -->
+        <div class="article-author-box">
+          <div class="article-author-box-avatar">J</div>
+          <div>
+            <div class="article-author-box-name">João</div>
+            <div class="article-author-box-handle">@joaogptbr</div>
+            <p class="article-author-box-bio">
+              Builder brasileiro construindo com IA todos os dias. Escrevo análises sobre inteligência artificial com contexto para o Brasil. Sem hype, sem tradução genérica.
+            </p>
+            <a href="https://x.com/joaogptbr" class="article-author-box-follow" target="_blank" rel="noopener">
+              Seguir no X
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Newsletter CTA ──────────────────────────────── -->
+        <div class="article-newsletter-cta">
+          <div class="article-newsletter-cta-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3>Próxima análise na sua caixa de entrada</h3>
+          <p>Uma newsletter semanal sobre IA com contexto para o Brasil. Sem spam.</p>
+          <form class="article-newsletter-form" id="article-newsletter-form" novalidate>
+            <input type="email" name="email" class="form-input" placeholder="seu@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Assinar</button>
+          </form>
+        </div>
+
+        <!-- ── Related articles ────────────────────────────── -->
+        <div class="article-related">
+          <p class="article-related-title">Continue lendo</p>
+          <div class="article-related-grid">
+            <a href="/artigos/google-io-play-store-tiktok-software" class="article-related-card">
+              <span class="article-related-tag">Análise</span>
+              <h4>O Google não lançou uma ferramenta de código. Lançou uma fábrica de software mobile.</h4>
+              <p>21 Mai 2026 · 7 min</p>
+            </a>
+            <a href="/artigos/meta-ads-ai-connectors-interface-deixa-software" class="article-related-card">
+              <span class="article-related-tag">Análise</span>
+              <h4>A Meta abriu o Ads pra Claude. Sem alarde, declarou que a interface morreu.</h4>
+              <p>19 Mai 2026 · 6 min</p>
+            </a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo footer-logo">JOÃO<span>GPT</span></a>
+          <p class="footer-tagline">Mídia tech brasileira sobre IA.</p>
+          <div class="footer-social">
+            <a href="https://x.com/joaogptbr" class="footer-icon" target="_blank" rel="noopener" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com/joaogptbr" class="footer-icon" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Links do rodapé">
+          <div class="footer-col">
+            <p class="footer-col-title">Conteúdo</p>
+            <a href="/artigos" class="footer-link">Artigos</a>
+            <a href="/#newsletter" class="footer-link">Newsletter</a>
+            <a href="/#sobre" class="footer-link">Sobre</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Redes</p>
+            <a href="https://x.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">X / Twitter</a>
+            <a href="https://instagram.com/joaogptbr" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://tiktok.com/@joaogptbr" class="footer-link" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://youtube.com/@joaogptbr" class="footer-link" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 JOÃOGPT · Todos os direitos reservados</p>
+        <p class="footer-sub">Feito com IA. Curado por humano.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    (function () {
+      const bar = document.getElementById('progress-bar');
+      const body = document.getElementById('article-body');
+      if (!bar || !body) return;
+      const update = () => {
+        const rect = body.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const scrolled = Math.max(0, -rect.top);
+        bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    (function () {
+      const btn = document.getElementById('copy-link-btn');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          const original = btn.innerHTML;
+          btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copiado!';
+          btn.style.color = 'var(--cyan)';
+          setTimeout(() => { btn.innerHTML = original; btn.style.color = ''; }, 2000);
+        });
+      });
+    })();
+
+    (function () {
+      const form = document.getElementById('article-newsletter-form');
+      if (!form) return;
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const input = form.querySelector('.form-input');
+        const btn   = form.querySelector('.btn');
+        const email = input ? input.value.trim() : '';
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+        if (btn) { btn.textContent = '...'; btn.disabled = true; }
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, utm_source: 'artigo', utm_medium: 'organic' }),
+          });
+          if (!res.ok) throw new Error('API error ' + res.status);
+          form.innerHTML = '<p style="color:var(--cyan);font-size:var(--text-sm);font-weight:600;">Confirmado! Verifique seu email.</p>';
+        } catch (err) {
+          console.error('Newsletter error:', err);
+          if (btn) { btn.textContent = 'Assinar'; btn.disabled = false; }
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
